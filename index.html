@@ -1,0 +1,2074 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>درسنامه جامع و ساختاریافته چشم‌پزشکی</title>
+    <link href="https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-font-face.css" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            font-family: 'Vazirmatn', sans-serif;
+            background-color: #f8fafc; /* پس‌زمینه بسیار روشن و آکادمیک */
+            color: #0f172a;
+            line-height: 2;
+        }
+
+        /* استایل‌های مربوط به تب‌ها و انیمیشن انتقال */
+        .section-content {
+            display: none;
+            animation: fadeIn 0.5s ease-out forwards;
+        }
+        .section-content.active {
+            display: block;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(15px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* لیست اصلی سطح اول (مربع) */
+        ul.academic-list {
+            list-style-type: none;
+            padding-right: 0;
+            margin-top: 1rem;
+            margin-bottom: 2rem;
+        }
+        ul.academic-list > li {
+            position: relative;
+            padding-right: 1.5rem;
+            margin-bottom: 1.25rem;
+            text-align: justify;
+            font-weight: 500;
+            font-size: 1.05rem;
+            color: #1e293b;
+        }
+        ul.academic-list > li::before {
+            content: "■";
+            color: #1d4ed8;
+            position: absolute;
+            right: 0;
+            top: 0.1rem;
+            font-size: 0.75rem;
+        }
+
+        /* لیست سطح دوم (نقطه توپر) */
+        ul.sub-list {
+            list-style-type: none;
+            padding-right: 0;
+            margin-top: 0.75rem;
+            margin-bottom: 0.5rem;
+            background-color: #f1f5f9;
+            padding: 1rem;
+            border-radius: 0.5rem;
+            border-right: 3px solid #cbd5e1;
+        }
+        ul.sub-list > li {
+            position: relative;
+            padding-right: 1.5rem;
+            margin-bottom: 0.75rem;
+            color: #334155;
+            font-weight: normal;
+            font-size: 1rem;
+        }
+        ul.sub-list > li::before {
+            content: "●";
+            color: #0ea5e9;
+            font-weight: bold;
+            position: absolute;
+            right: 0;
+            top: 0;
+            font-size: 0.95rem;
+        }
+
+        /* لیست سطح سوم (نقطه توخالی) */
+        ul.sub-sub-list {
+            list-style-type: none;
+            padding-right: 0;
+            margin-top: 0.5rem;
+        }
+        ul.sub-sub-list > li {
+            position: relative;
+            padding-right: 1.5rem;
+            margin-bottom: 0.5rem;
+            color: #475569;
+            font-size: 0.95rem;
+        }
+        ul.sub-sub-list > li::before {
+            content: "○";
+            color: #64748b;
+            font-weight: bold;
+            position: absolute;
+            right: 0;
+            top: 0;
+            font-size: 1.1rem;
+        }
+
+        /* هایلایت نکات مهم */
+        .highlight {
+            background-color: #fef08a; /* زرد ملایم */
+            padding: 0.15rem 0.5rem;
+            border-radius: 0.25rem;
+            font-weight: 700;
+            color: #000;
+            box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+        }
+
+        /* تیترها */
+        h2.chapter-title {
+            color: #1e3a8a;
+            font-size: 1.85rem;
+            font-weight: 900;
+            border-bottom: 4px solid #bfdbfe;
+            padding-bottom: 1rem;
+            margin-bottom: 2rem;
+            display: inline-block;
+        }
+        h3.topic-title {
+            color: #1d4ed8;
+            font-size: 1.4rem;
+            font-weight: 800;
+            margin-top: 3rem;
+            margin-bottom: 1.5rem;
+            background-color: #eff6ff;
+            padding: 0.75rem 1.25rem;
+            border-radius: 0.5rem;
+            border-right: 5px solid #2563eb;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+        }
+        h4.sub-topic {
+            color: #0f172a;
+            font-size: 1.15rem;
+            font-weight: 800;
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+        }
+        h4.sub-topic::before {
+            content: "";
+            display: inline-block;
+            width: 8px;
+            height: 8px;
+            background-color: #f59e0b;
+            border-radius: 50%;
+            margin-left: 0.75rem;
+        }
+
+        /* جداول آکادمیک */
+        .table-container {
+            overflow-x: auto;
+            margin: 2rem 0;
+            border-radius: 0.5rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.95rem;
+            background-color: white;
+            min-width: 600px;
+        }
+        th, td {
+            border: 1px solid #e2e8f0;
+            padding: 1rem;
+            text-align: right;
+            vertical-align: top;
+        }
+        th {
+            background-color: #f1f5f9;
+            color: #0f172a;
+            font-weight: 800;
+        }
+        tr:nth-child(even) { background-color: #fafafa; }
+        
+        /* اسکرول‌بار سفارشی */
+        ::-webkit-scrollbar { width: 8px; height: 8px; }
+        ::-webkit-scrollbar-track { background: #f1f5f9; }
+        ::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #94a3b8; }
+    </style>
+</head>
+<body class="flex h-screen overflow-hidden">
+
+    <!-- پس‌زمینه تیره برای تمام صفحات (دسکتاپ و موبایل) -->
+    <div id="overlay" class="fixed inset-0 bg-slate-900 bg-opacity-50 z-40 hidden backdrop-blur-sm" onclick="toggleSidebar()"></div>
+
+    <!-- منوی کناری (همبرگری در تمام صفحات) -->
+    <aside id="sidebar" class="fixed inset-y-0 right-0 w-80 bg-white shadow-2xl z-50 transform translate-x-full transition-transform duration-300 flex flex-col border-l border-slate-200">
+        <div class="p-6 flex justify-between items-center bg-blue-900 text-white shadow-md">
+            <div>
+                <h1 class="text-xl font-black tracking-wide">درسنامه جامع</h1>
+                <p class="text-xs text-blue-200 mt-1 font-medium">ساختاریافته و سلسله‌مراتبی</p>
+            </div>
+            <!-- دکمه بستن در منو برای تمامی دستگاه‌ها نمایش داده می‌شود -->
+            <button onclick="toggleSidebar()" class="text-white hover:text-blue-200 transition">
+                <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+            </button>
+        </div>
+        <nav class="flex-1 overflow-y-auto p-4 space-y-1">
+            <button onclick="switchTab('sec-1')" class="w-full text-right px-4 py-3 rounded-lg text-sm font-bold text-slate-700 hover:bg-blue-50 hover:text-blue-800 transition focus:bg-blue-100 focus:text-blue-900">بخش اول: قرنیه و سگمان قدامی</button>
+            <button onclick="switchTab('sec-2')" class="w-full text-right px-4 py-3 rounded-lg text-sm font-bold text-slate-700 hover:bg-blue-50 hover:text-blue-800 transition focus:bg-blue-100 focus:text-blue-900">بخش دوم: شبکیه و اووئیت</button>
+            <button onclick="switchTab('sec-3')" class="w-full text-right px-4 py-3 rounded-lg text-sm font-bold text-slate-700 hover:bg-blue-50 hover:text-blue-800 transition focus:bg-blue-100 focus:text-blue-900">بخش سوم: گلوکوم</button>
+            <button onclick="switchTab('sec-4')" class="w-full text-right px-4 py-3 rounded-lg text-sm font-bold text-slate-700 hover:bg-blue-50 hover:text-blue-800 transition focus:bg-blue-100 focus:text-blue-900">بخش چهارم: استرابیسم و اربیت</button>
+            <button onclick="switchTab('sec-5')" class="w-full text-right px-4 py-3 rounded-lg text-sm font-bold text-slate-700 hover:bg-blue-50 hover:text-blue-800 transition focus:bg-blue-100 focus:text-blue-900">بخش پنجم: اورژانس‌های چشمی</button>
+            <button onclick="switchTab('sec-6')" class="w-full text-right px-4 py-3 rounded-lg text-sm font-bold text-slate-700 hover:bg-blue-50 hover:text-blue-800 transition focus:bg-blue-100 focus:text-blue-900">بخش ششم: تصویربرداری و بیومتری</button>
+            <button onclick="switchTab('sec-7')" class="w-full text-right px-4 py-3 rounded-lg text-sm font-bold text-slate-700 hover:bg-blue-50 hover:text-blue-800 transition focus:bg-blue-100 focus:text-blue-900">بخش هفتم: جداول تشخیص افتراقی</button>
+            <button onclick="switchTab('sec-8')" class="w-full text-right px-4 py-3 rounded-lg text-sm font-bold text-slate-700 hover:bg-blue-50 hover:text-blue-800 transition focus:bg-blue-100 focus:text-blue-900">بخش هشتم: الگوریتم‌های تشخیصی</button>
+            <button onclick="switchTab('sec-9')" class="w-full text-right px-4 py-3 rounded-lg text-sm font-bold text-slate-700 hover:bg-blue-50 hover:text-blue-800 transition focus:bg-blue-100 focus:text-blue-900">بخش نهم: الگوریتم‌های درمانی</button>
+            <button onclick="switchTab('sec-10')" class="w-full text-right px-4 py-3 rounded-lg text-sm font-bold text-slate-700 hover:bg-blue-50 hover:text-blue-800 transition focus:bg-blue-100 focus:text-blue-900">بخش دهم: نکات مورد تأکید</button>
+            <button onclick="switchTab('sec-11')" class="w-full text-right px-4 py-3 rounded-lg text-sm font-bold text-slate-700 hover:bg-blue-50 hover:text-blue-800 transition focus:bg-blue-100 focus:text-blue-900">بخش یازدهم: اعداد و آستانه‌های مهم</button>
+            <button onclick="switchTab('sec-12')" class="w-full text-right px-4 py-3 rounded-lg text-sm font-bold text-slate-700 hover:bg-blue-50 hover:text-blue-800 transition focus:bg-blue-100 focus:text-blue-900">بخش دوازدهم: دام‌های رایج امتحانی</button>
+        </nav>
+    </aside>
+
+    <!-- ناحیه محتوای اصلی -->
+    <main class="flex-1 flex flex-col h-full relative w-full bg-slate-50">
+        <!-- هدر عمومی -->
+        <header class="bg-white shadow-sm border-b border-slate-200 px-6 py-4 flex items-center justify-between z-30">
+            <!-- دکمه همبرگری در تمام صفحات نمایش داده می‌شود -->
+            <div class="flex items-center">
+                <button onclick="toggleSidebar()" class="text-slate-700 focus:outline-none bg-slate-100 p-2 rounded-lg hover:bg-slate-200 transition">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+                </button>
+                <h2 class="mr-4 text-lg font-black text-slate-800">چشم‌پزشکی</h2>
+            </div>
+            <div class="text-sm text-slate-500 font-bold hidden lg:flex items-center">
+                <span class="w-2 h-2 rounded-full bg-green-500 ml-2"></span>
+                محیط مطالعه ساختاریافته
+            </div>
+        </header>
+
+        <!-- کانتینر اصلی مطالب -->
+        <div class="flex-1 overflow-y-auto p-4 sm:p-8" id="main-scroll-area">
+            <div class="max-w-5xl mx-auto bg-white rounded-2xl shadow-xl border border-slate-100 p-6 sm:p-12 mb-10">
+
+                <div id="sec-1" class="section-content active">
+                    <h2 class="chapter-title">بخش اول: Cornea & Anterior Segment</h2>
+
+                    <h3 class="topic-title">کراتوکونوس، اکتازی قرنیه و غربالگری جراحی رفرکتیو</h3>
+                    
+                    <h4 class="sub-topic">تعریف و اپیدمیولوژی</h4>
+                    <ul class="academic-list">
+                        <li>Keratoconus (KC) یک اختلال اکتاتیک نسبتاً شایع قرنیه است
+                            <ul class="sub-list">
+                                <li>فراوانی آن تقریباً ۱ در ۲۰۰۰ نفر است (بسته به منطقه و روش سنجش متغیر است)</li>
+                                <li>ماهیت آن نازک‌شدگی و برجستگی پیشرونده است</li>
+                                <li>این درگیری در قرنیه مرکزی، پاراسنترال تحتانی یا میدپریفرال تحتانی رخ می‌دهد</li>
+                                <li>نتیجه آن مخروطی شدن قرنیه است</li>
+                            </ul>
+                        </li>
+                        <li>نشانه شاخص بیماری، برجستگی قرنیه همراه با نازکی در نقطه حداکثر برجستگی (apex مخروط) است
+                            <ul class="sub-list">
+                                <li>شروع بیماری در بلوغ است</li>
+                                <li>سریع‌ترین پیشرفت در دهه‌های دوم و سوم عمر رخ می‌دهد</li>
+                                <li>پیشرفت پس از ۴۰ سالگی غیرمعمول است</li>
+                                <li>اما پیشرفت پس از ۴۰ سالگی همچنان ممکن است رخ دهد</li>
+                            </ul>
+                        </li>
+                        <li>الگوی درگیری معمولاً دوطرفه با عدم تقارن است
+                            <ul class="sub-list">
+                                <li>سابقه خانوادگی مثبت در ۶ تا ۸ درصد موارد دیده می‌شود</li>
+                                <li>شیوع در بستگان درجه اول ۳٫۳۴ درصد است</li>
+                            </ul>
+                        </li>
+                        <li><span class="highlight">مالش چشم مهم‌ترین عامل خطر قابل اصلاح</span> در ایجاد و پیشرفت بیماری است
+                            <ul class="sub-list">
+                                <li>بیماران باید اکیداً از مالش چشم منع شوند</li>
+                            </ul>
+                        </li>
+                        <li>سایر عوامل خطر در ایجاد کراتوکونوس شامل موارد زیر است:
+                            <ul class="sub-list">
+                                <li>استعداد ژنتیکی</li>
+                                <li>آتوپی و کراتوکنژنکتیویت آلرژیک</li>
+                                <li>استفاده از لنز تماسی</li>
+                                <li>اختلالات کلاژن با مفاصل hyperelastic (در حدود ۵۰ درصد بیماران)</li>
+                                <li>جراحی رفرکتیو ablative در میوپی بالا یا قرنیه نازک</li>
+                                <li>استرس اکسیداتیو</li>
+                            </ul>
+                        </li>
+                        <li>همراهی‌های سیستمیک این بیماری عبارتند از:
+                            <ul class="sub-list">
+                                <li>آتوپی</li>
+                                <li>سندرم Down</li>
+                                <li>سندرم Ehlers-Danlos</li>
+                                <li>بیماری Osteogenesis Imperfecta</li>
+                                <li>پرولاپس دریچه میترال</li>
+                                <li>آپنه خواب (Sleep Apnea)</li>
+                            </ul>
+                        </li>
+                        <li>همراهی‌های چشمی شامل موارد زیر است:
+                            <ul class="sub-list">
+                                <li>کراتوکنژنکتیویت ورنال</li>
+                                <li>آنیریدی</li>
+                                <li>سندرم Floppy Eyelid</li>
+                                <li>رتینیت پیگمانتوزا</li>
+                                <li>رتینوپاتی نوزادان نارس (ROP)</li>
+                            </ul>
+                        </li>
+                    </ul>
+
+                    <h4 class="sub-topic">یافته‌های بالینی</h4>
+                    <ul class="academic-list">
+                        <li>علائم و نشانه‌ها به ترتیب سیر پیشرفت بیماری تظاهر می‌کنند:
+                            <ul class="sub-list">
+                                <li>رفلکس scissoring در رتینوسکوپی (علامتی زودرس اما غیراختصاصی است)</li>
+                                <li>آستیگماتیسم نامنظم پیشرونده</li>
+                                <li>حلقه Fleischer
+                                    <ul class="sub-sub-list">
+                                        <li>این حلقه ناشی از رسوب آهن در اپی‌تلیوم قاعده مخروط است</li>
+                                        <li>بهترین روش مشاهده آن استفاده از فیلتر آبی کبالت است</li>
+                                    </ul>
+                                </li>
+                                <li>خطوط Vogt
+                                    <ul class="sub-sub-list">
+                                        <li>خطوط موازی در استرومای خلفی apex مخروط هستند</li>
+                                        <li>با اعمال فشار خارجی روی کره چشم محو می‌شوند</li>
+                                    </ul>
+                                </li>
+                                <li>علامت Rizzuti</li>
+                                <li>علامت Munson (نشانه دیررس)</li>
+                                <li>ایجاد اسکار در ناحیه apex</li>
+                            </ul>
+                        </li>
+                        <li>عارضه Hydrops حاد:
+                            <ul class="sub-list">
+                                <li>به معنای ادم ناگهانی قرنیه در اثر پارگی غشای Descemet است</li>
+                                <li>معمولاً در اواخر سیر بیماری رخ می‌دهد</li>
+                                <li>این ادم معمولاً طی ۳ ماه به صورت خودبه‌خودی شفاف می‌شود</li>
+                                <li><span class="highlight">Hydrops به هیچ وجه اندیکاسیون کراتوپلاستی اورژانس نیست</span></li>
+                            </ul>
+                        </li>
+                        <li>درمان Hydrops حاد شامل اقدامات زیر است:
+                            <ul class="sub-list">
+                                <li>استفاده از قطره هایپرتونیک موضعی یا لنز نرم پانسمانی</li>
+                                <li>قطره سیکلوپلژیک</li>
+                                <li>قطره استروئید موضعی</li>
+                                <li>در صورت نیاز تزریق داخل اتاقکی هوا یا گاز غیرمنبسط‌شونده (گازهای SF6 یا C3F8)</li>
+                                <li>در صورت تزریق گاز، پیشگیری از pupillary block الزامی است</li>
+                            </ul>
+                        </li>
+                    </ul>
+
+                    <h4 class="sub-topic">شاخص‌های تشخیصی توپوگرافی و توموگرافی</h4>
+                    <ul class="academic-list">
+                        <li>شاخص‌های توپوگرافیک مطرح‌کننده کراتوکونوس شامل موارد زیر است:
+                            <ul class="sub-list">
+                                <li>تندشدگی کلی قرنیه بیشتر از 47.20 دیوپتر</li>
+                                <li>نسبت I-S بیشتر از 1.2 (تندشدگی ناحیه تحتانی نسبت به فوقانی)</li>
+                                <li>شاخص SRAX (کج‌شدگی محورهای رادیال) بیشتر از 21 درجه</li>
+                                <li>نکته مهم: عدم تقارن bow-tie بدون skew پاتوگنومونیک کراتوکونوس نیست
+                                    <ul class="sub-sub-list">
+                                        <li>این حالت می‌تواند صرفاً ناشی از غیرمرکزی بودن apex باشد</li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>شاخص‌های توموگرافیک مطرح‌کننده کراتوکونوس شامل موارد زیر است:
+                            <ul class="sub-list">
+                                <li>جزایر منفرد الویشن قدامی یا خلفی نسبت به کره مرجع (best-fit sphere)</li>
+                                <li><span class="highlight">الویشن خلفی بدون علامت، نشانه زودرس کراتوکونوس تحت‌بالینی است</span></li>
+                                <li>نازکی غیرطبیعی کمتر از 500 میکرومتر (به‌ویژه منطبق بر جزایر الویشن)</li>
+                                <li>اختلاف ضخامت I-S بیشتر از 30 میکرومتر در حلقه 5 میلی‌متری</li>
+                                <li>اختلاف بیش از 30 میکرومتر در نازک‌ترین نقطه پاکی‌متری بین دو چشم</li>
+                                <li>جابه‌جایی نازک‌ترین نقطه از مرکز در نقشه پاکی‌متری</li>
+                                <li>افزایش سریع‌تر ضخامت از نازک‌ترین نقطه به سمت لیمبوس</li>
+                            </ul>
+                        </li>
+                        <li>ارزیابی نقشه ضخامت اپی‌تلیوم با دستگاه AS-OCT:
+                            <ul class="sub-list">
+                                <li>در کراتوکونوس اپی‌تلیوم در apex مخروط (به طور تیپیک اینفروتمپورال) نازک‌تر است</li>
+                                <li>در کراتوکونوس اپی‌تلیوم در ناحیه سوپرونازال ضخیم‌تر است</li>
+                                <li><span class="highlight">در warpage لنز تماسی، ضخامت اپی‌تلیوم مرکزی افزایش می‌یابد</span></li>
+                                <li>این تفاوت ضخامتی، نقطه افتراق بسیار مهمی است</li>
+                            </ul>
+                        </li>
+                        <li>یافته‌های ابرومتری:
+                            <ul class="sub-list">
+                                <li>اباراسیون Coma غالب‌ترین اباراسیون مرتبه بالا در کراتوکونوس است</li>
+                            </ul>
+                        </li>
+                        <li>پایش پیشرفت بیماری:
+                            <ul class="sub-list">
+                                <li>با تصویربرداری سریال انجام می‌شود</li>
+                                <li>از سیستم درجه‌بندی Belin ABCD استفاده می‌شود</li>
+                                <li>این سیستم شامل انحنای قدامی، انحنای خلفی اطراف نازک‌ترین نقطه، پاکی‌متری و بهترین دید اصلاح‌شده است</li>
+                            </ul>
+                        </li>
+                    </ul>
+
+                    <h4 class="sub-topic">تفسیر Pentacam در متقاضی جراحی رفرکتیو (رویکرد عملی)</h4>
+                    <ul class="academic-list">
+                        <li>قاعده پایه و حیاتی:
+                            <ul class="sub-list">
+                                <li>اگر بهترین دید اصلاح‌شده (BCVA) پایین‌تر از حد انتظار است، متوقف شوید</li>
+                                <li>پیش از هر تصمیم رفرکتیو، ابتدا علت افت دید را پیدا کنید</li>
+                                <li>در فرد دارای میوپی بالا بدون آمبلیوپی یا پاتولوژی شدید ماکولا، دید اصلاح‌شده معمولاً بهتر از 4/10 است</li>
+                            </ul>
+                        </li>
+                        <li>علل محتمل افت دید در این افراد:
+                            <ul class="sub-list">
+                                <li>تغییر شکل (warpage) قرنیه ناشی از مصرف لنز سخت</li>
+                                <li>کراتوکونوس زمینه‌ای</li>
+                                <li>آب مروارید (کاتاراکت)</li>
+                                <li>گلوکوم یا گلوکوم با فشار نرمال (NTG) همراه با دیسک tilted</li>
+                            </ul>
+                        </li>
+                        <li>نمونه تفسیر در متقاضی LASIK با سابقه مصرف لنز RGP:
+                            <ul class="sub-list">
+                                <li>در مپ انحنا (axial)، مرکز قرنیه نسبتاً flat و اطراف آن steep است (الگوی وارونه غیرطبیعی)</li>
+                                <li>در مقابل، مپ elevation و مپ pachymetry تقریباً طبیعی هستند</li>
+                                <li>نازک‌ترین نقطه (thinnest) در محدوده نرمال قرار دارد</li>
+                                <li><span class="highlight">آستیگماتیسم نامنظم (irregularity) بدون الویشن غیرطبیعی و بدون نازکی پیشرونده، قویاً به نفع warpage است، نه کراتوکونوس</span></li>
+                            </ul>
+                        </li>
+                    </ul>
+
+                    <h4 class="sub-topic">Contact Lens Warpage</h4>
+                    <ul class="academic-list">
+                        <li>رویکرد صحیح در متقاضی جراحی رفرکتیو با سابقه لنز تماسی سخت:
+                            <ul class="sub-list">
+                                <li>باید احتمال warpage را بسیار جدی بگیرید</li>
+                                <li>قدم اول، قطع مصرف لنز و پیگیری بیمار است</li>
+                                <li>پس از طی شدن دوره شست‌وشو (washout)، توپوگرافی باید مجدداً انجام شود</li>
+                                <li>این روند تا بازگشت قرنیه به وضعیت پایدار ادامه می‌یابد</li>
+                                <li>تنها پس از ثبات قرنیه، درباره وجود کراتوکونوس یا سایر علل قضاوت می‌شود</li>
+                            </ul>
+                        </li>
+                        <li>اقدامات همراه در همین بیمار (به دلیل شیوع بیشتر گلوکوم در میوپ‌ها):
+                            <ul class="sub-list">
+                                <li>اندازه‌گیری فشار چشم (IOP) الزامی است</li>
+                                <li>بررسی کمپلکس سلول‌های گانگلیونی (GCC) و میدان بینایی انجام شود</li>
+                                <li><span class="highlight">در دیسک‌های tilted میوپیک، آنالیز لایه عصبی (RNFL) قابل اعتماد نیست و آنالیز GCC ارجحیت دارد</span></li>
+                            </ul>
+                        </li>
+                        <li>افتراق بافت‌شناسی:
+                            <ul class="sub-list">
+                                <li>در warpage لنز تماسی، اپی‌تلیوم مرکزی ضخیم می‌شود</li>
+                                <li>این حالت برخلاف کراتوکونوس است که در آن apex نازک‌تر است</li>
+                            </ul>
+                        </li>
+                    </ul>
+
+                    <h4 class="sub-topic">نردبان درمان کراتوکونوس</h4>
+                    <ul class="academic-list">
+                        <li>درمان موارد خفیف:
+                            <ul class="sub-list">
+                                <li>تجویز عینک</li>
+                                <li>منع اکید بیمار از مالش چشم</li>
+                                <li>کنترل بیماری آتوپیک زمینه‌ای</li>
+                                <li>پایش مکرر به‌ویژه در بیماران جوان</li>
+                            </ul>
+                        </li>
+                        <li>نقش لنز تماسی در درمان:
+                            <ul class="sub-list">
+                                <li>لنز تماسی آستیگماتیسم نامنظم را می‌پوشاند و دید را اصلاح می‌کند</li>
+                                <li>اما <span class="highlight">استفاده از لنز از پیشرفت بیماری جلوگیری نمی‌کند</span></li>
+                                <li>گزینه‌های لنز شامل موارد زیر است:
+                                    <ul class="sub-sub-list">
+                                        <li>لنز soft toric</li>
+                                        <li>لنز RGP</li>
+                                        <li>لنز hybrid</li>
+                                        <li>سیستم piggyback</li>
+                                        <li>لنزهای mini-scleral و scleral</li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>نقش و جایگاه کراس‌لینکینگ (CXL):
+                            <ul class="sub-list">
+                                <li>برای بیماری پیشرونده مستند انجام می‌شود</li>
+                                <li>برای بیمارانی که خطر بالای پیشرفت دارند (به‌ویژه نوجوانان) توصیه می‌شود</li>
+                                <li>در موارد خفیف تا متوسط مؤثرترین روش است</li>
+                                <li>در سال 2016 تأییدیه FDA را برای روش epi-off در سنین ۱۴ تا ۶۵ سال دریافت کرد</li>
+                            </ul>
+                        </li>
+                        <li>مشخصات پروتکل Dresden برای کراس‌لینکینگ:
+                            <ul class="sub-list">
+                                <li>برداشتن اپی‌تلیوم مرکزی به قطر 9 میلی‌متر</li>
+                                <li>استفاده از ریبوفلاوین 0.1 درصد در دکستران 20 درصد هر ۲ دقیقه به مدت ۳۰ دقیقه</li>
+                                <li><span class="highlight">حداقل 400 میکرومتر استرومای برهنه برای پیشگیری از آسیب اندوتلیال الزامی است</span></li>
+                                <li>در صورت رسیدن به این ضخامت، تابش اشعه UVA انجام می‌شود</li>
+                                <li>طول موج اشعه 365 نانومتر است</li>
+                                <li>شدت اشعه 3 میلی‌وات بر سانتی‌متر مربع است</li>
+                                <li>مدت زمان تابش ۳۰ دقیقه است</li>
+                                <li>انرژی استاندارد در این روش 5.4 ژول بر سانتی‌متر مربع است</li>
+                                <li>در صورت ضخامت کمتر از 400 میکرومتر، از ریبوفلاوین هیپوتونیک برای متورم کردن قرنیه استفاده می‌شود</li>
+                                <li>حدود ۹۵ درصد اشعه UVA در 300 میکرومتر قدامی قرنیه جذب می‌شود</li>
+                            </ul>
+                        </li>
+                        <li>کنترااندیکاسیون‌های نسبی کراس‌لینکینگ:
+                            <ul class="sub-list">
+                                <li>ضخامت استرومای کمتر از 400 میکرومتر</li>
+                                <li>سابقه عفونت هرپسی قرنیه (به دلیل خطر فعال‌شدن مجدد با اشعه UV)</li>
+                                <li>وجود اسکار شدید در قرنیه</li>
+                                <li>ترمیم ضعیف اپی‌تلیوم</li>
+                                <li>بیماری شدید سطح چشم</li>
+                                <li>اختلالات اتوایمیون</li>
+                            </ul>
+                        </li>
+                        <li>عوارض کراس‌لینکینگ:
+                            <ul class="sub-list">
+                                <li>تأخیر در ترمیم اپی‌تلیوم</li>
+                                <li>ایجاد هیز (haze) استرومایی</li>
+                                <li>کراتیت عفونی</li>
+                                <li>ارتشاح (اینفیلتراسیون) استریل</li>
+                                <li>ذوب قرنیه</li>
+                                <li>ادم پایدار اندوتلیالی</li>
+                                <li>این عوارض در سنین بالاتر از ۳۵ سال و قرنیه‌های شیب‌دار (Kmax بیشتر از 58.00 دیوپتر) شایع‌ترند</li>
+                            </ul>
+                        </li>
+                        <li>نقش حلقه‌های داخل قرنیه‌ای (ICRS):
+                            <ul class="sub-list">
+                                <li>برای متمرکزکردن مخروط قرنیه استفاده می‌شود</li>
+                                <li>باعث تسهیل در فیت کردن لنز در کراتوکونوس خفیف تا متوسط می‌شود</li>
+                                <li>برای بیمارانی که عدم تحمل لنز دارند کاربرد دارد</li>
+                                <li><span class="highlight">این حلقه‌ها پیشرفت بیماری را درمان نمی‌کنند</span></li>
+                                <li>شرایط لازم شامل سن بیشتر یا مساوی ۲۱ سال است</li>
+                                <li>قرنیه مرکزی باید شفاف باشد</li>
+                                <li>ضخامت قرنیه در محل برش باید بیشتر یا مساوی 450 میکرومتر باشد</li>
+                                <li>قابل ترکیب با کراس‌لینکینگ است (ابتدا ICRS و سپس CXL انجام می‌شود)</li>
+                                <li>در صورت نیاز به پیوند قرنیه در آینده، سگمان‌ها باید حدود ۱ ماه قبل خارج شوند</li>
+                            </ul>
+                        </li>
+                        <li>اندیکاسیون‌های پیوند قرنیه (کراتوپلاستی):
+                            <ul class="sub-list">
+                                <li>دید ضعیف علی‌رغم فیت پایدار لنز (معمولاً به دلیل اسکار)</li>
+                                <li>عدم تحمل لنز تماسی</li>
+                                <li>فیت ناپایدار لنز روی قرنیه</li>
+                                <li>بروز hydrops که پس از چند ماه شفاف نشده باشد</li>
+                                <li>روش PK پیش‌آگهی عالی دارد اما بسیاری از جراحان DALK را ترجیح می‌دهند</li>
+                                <li>مزایای DALK شامل شمار سلول اندوتلیال بالاتر است</li>
+                                <li>در DALK فقدان رد پیوند اندوتلیالی را داریم</li>
+                                <li>استحکام زخم پس از تروما در DALK بهتر است</li>
+                            </ul>
+                        </li>
+                    </ul>
+
+                    <h4 class="sub-topic">غربالگری اکتازی پیش از جراحی رفرکتیو</h4>
+                    <ul class="academic-list">
+                        <li>تعریف و شیوع اکتازی:
+                            <ul class="sub-list">
+                                <li>اکتازی هنگامی رخ می‌دهد که یکپارچگی بیومکانیکی قرنیه پس از برداشتن بافت (ablation) از آستانه عملکردی کمتر شود</li>
+                                <li>این عارضه پس از عمل LASIK بسیار شایع‌تر از surface ablation است</li>
+                                <li>نرخ بروز اکتازی پس از LASIK در برآورد سال ۲۰۱۸ حدود ۰٫۰۳۳ درصد است</li>
+                            </ul>
+                        </li>
+                        <li>عوامل خطر ایجاد اکتازی:
+                            <ul class="sub-list">
+                                <li><span class="highlight">توپوگرافی غیرطبیعی پیش از عمل (مهم‌ترین عامل افتراق‌دهنده)</span></li>
+                                <li>سن کمتر بیمار</li>
+                                <li>میوپی بالاتر</li>
+                                <li>قرنیه نازک‌تر پیش از عمل</li>
+                                <li>بستر استرومایی باقیمانده (RSB) کمتر</li>
+                            </ul>
+                        </li>
+                        <li>شاخص درصد تغییر ضخامت (PTA):
+                            <ul class="sub-list">
+                                <li>فرمول: ضخامت فلپ به‌علاوه عمق ablation تقسیم بر ضخامت کل قرنیه، ضرب در صد</li>
+                                <li>مقادیر PTA بیشتر از ۴۰ درصد با خطر بالاتر اکتازی همراه است</li>
+                                <li>این شاخص در بیماران با توپوگرافی طبیعی، مهم‌ترین عامل خطر محسوب می‌شود</li>
+                                <li>با این حال، اکتازی بدون وجود هیچ عامل خطری نیز گزارش شده است</li>
+                            </ul>
+                        </li>
+                        <li>شاخص ضخامت بستر باقیمانده (RSB):
+                            <ul class="sub-list">
+                                <li>فرمول: ضخامت مرکزی قرنیه منهای ضخامت فلپ منهای عمق ablation</li>
+                                <li>اکثر جراحان حفظ حداقل 250 میکرومتر را الزامی می‌دانند</li>
+                                <li>برخی جراحان ترجیح می‌دهند RSB بیشتر از ۵۰ درصد ضخامت اولیه باشد</li>
+                                <li><span class="highlight">در مواردی که RSB ناکافی پیش‌بینی می‌شود، surface ablation گزینه بسیار بهتری است</span></li>
+                                <li>دقیق‌ترین روش تعیین ضخامت فلپ و RSB، استفاده از پاکی‌متری حین عمل است</li>
+                            </ul>
+                        </li>
+                        <li>ضخامت طبیعی قرنیه:
+                            <ul class="sub-list">
+                                <li>میانگین ضخامت مرکزی قرنیه در کاندیداهای LASIK حدود 550 میکرومتر است</li>
+                                <li>قرنیه‌هایی که بیش از ۲ انحراف معیار نازک‌ترند، کاندیدای مناسبی برای جراحی نیستند</li>
+                            </ul>
+                        </li>
+                        <li>محدودیت‌های دستگاه‌ها:
+                            <ul class="sub-list">
+                                <li>الگوریتم‌های elevation-based کمک‌کننده‌اند اما وابسته به نوع دستگاه هستند</li>
+                                <li>یک نقشه توپوگرافی «طبیعی» تضمین‌کننده عدم بروز اکتازی نیست</li>
+                                <li>بیماران جوان با کانتور غیرمعمول باید در طول زمان از نظر پیشرفت پایش شوند</li>
+                            </ul>
+                        </li>
+                    </ul>
+
+                    <h4 class="sub-topic">اکتازی پس از PRK یا LASIK</h4>
+                    <ul class="academic-list">
+                        <li>الزام تشخیصی:
+                            <ul class="sub-list">
+                                <li>در هر مورد کاهش دید یا رگرشن پس از جراحی رفرکتیو، رد اکتازی با توموگرافی الزامی است</li>
+                                <li>باید مشخص شود افت دید ناشی از اکتازی است یا دلایل دیگر (مانند haze)</li>
+                            </ul>
+                        </li>
+                        <li>درمان اکتازی مستقر پس از LASIK:
+                            <ul class="sub-list">
+                                <li>کراس‌لینکینگ (CXL) درمان خط اول برای تثبیت قرنیه است</li>
+                                <li>برای بازیابی دید عملکردی، اغلب از لنز RGP یا لنز هیبرید استفاده می‌شود</li>
+                                <li>کارگذاری حلقه‌های داخل قرنیه‌ای (ICRS) در موارد منتخب کاربرد دارد</li>
+                                <li>در موارد بسیار شدید، بیمار نیازمند پیوند قرنیه خواهد بود</li>
+                                <li>بیماران دچار اکتازی پس از LASIK ممکن است پاسخ ضعیف‌تری به CXL بدهند</li>
+                                <li>علت این امر آن است که فلپ لیزیک، ثبات بیومکانیکی کمتری نسبت به قرنیه دست‌نخورده دارد</li>
+                            </ul>
+                        </li>
+                    </ul>
+
+                    <h4 class="sub-topic text-red-700">آنچه نباید در غربالگری رفرکتیو انجام شود (اقدامات ممنوعه)</h4>
+                    <ul class="academic-list">
+                        <li>کارگذاری فوری لنز داخل چشمی (phakic IOL) در بیمار دارای لنز سخت:
+                            <ul class="sub-list">
+                                <li>در بیماری که با لنز سخت دید پایین‌تر از حد انتظار دارد، این کار خطاست</li>
+                                <li>ابتدا باید لنز قطع شود (washout) و ارزیابی مجدد صورت گیرد</li>
+                                <li>خود تغییر شکل ناشی از لنز (warpage) می‌تواند علت افت دید باشد</li>
+                            </ul>
+                        </li>
+                        <li>انجام کراس‌لینکینگ (CXL) بدون اثبات اکتازی:
+                            <ul class="sub-list">
+                                <li>در بیمارِ دارای کدورت پس از عمل (post-PRK haze) بدون شواهد توموگرافیک اکتازی، انجام کراس‌لینک غلط است</li>
+                            </ul>
+                        </li>
+                        <li>اتکا به آنالیز رشته‌های عصبی (RNFL) در دیسک کج‌شده (tilted disc):
+                            <ul class="sub-list">
+                                <li>در میوپ‌ها برای غربالگری گلوکوم، این آنالیز پر از آرتیفکت است</li>
+                                <li>در این بیماران آنالیز کمپلکس سلول‌های گانگلیونی (GCC) ارجحیت کامل دارد</li>
+                            </ul>
+                        </li>
+                        <li>انجام برداشت بافتی (ablation) با بستر استرومای نازک:
+                            <ul class="sub-list">
+                                <li>باقی گذاشتن بستر استرومایی (RSB) کمتر از 250 میکرومتر ممنوع است</li>
+                                <li>انجام عمل در صورت شاخص PTA بیشتر از ۴۰ درصد خطرساز است</li>
+                            </ul>
+                        </li>
+                        <li>اعتماد مطلق به یک تصویر توپوگرافی:
+                            <ul class="sub-list">
+                                <li>قضاوت بر پایه یک نقشه واحد در بیمار جوانِ دارای کانتور غیرمعمول قرنیه، تضمینی در برابر اکتازی نیست</li>
+                            </ul>
+                        </li>
+                    </ul>
+
+                    <h3 class="topic-title">کدورت پس از عمل (Post-PRK Haze) و رگرشن</h3>
+                    <ul class="academic-list">
+                        <li>تعریف و ماهیت:
+                            <ul class="sub-list">
+                                <li>هیز (Haze) پس از عمل PRK، یک کدورت در لایه ساب‌اپیتلیال قرنیه است</li>
+                                <li>این کدورت در ناحیه برداشته شده با لیزر (ablation zone) ایجاد می‌شود</li>
+                                <li>می‌تواند ماه‌ها پس از عمل تظاهر کند</li>
+                                <li>با کاهش دید و بازگشت شماره چشم (رگرشن میوپیک) همراه است</li>
+                            </ul>
+                        </li>
+                        <li>منطق کلیدی و ارتباط دو پدیده:
+                            <ul class="sub-list">
+                                <li>بخشی از بازگشت شماره چشم، صرفاً معلولِ حضور همین بافت کدر ساب‌اپیتلیال است</li>
+                                <li>بنابراین <span class="highlight">اگر هیز برطرف شود، بخش قابل توجهی از رگرشن میوپیک نیز خودبه‌خود اصلاح می‌شود</span></li>
+                            </ul>
+                        </li>
+                        <li>الگوی تظاهر بیمار:
+                            <ul class="sub-list">
+                                <li>کاهش دید در چشم مبتلا همراه با بازگشت شماره چشم به سمت نزدیک‌بینی</li>
+                                <li>وجود کدورت ساب‌اپیتلیال در ناحیه مرکزی قرنیه در معاینه با اسلیت‌لمپ</li>
+                            </ul>
+                        </li>
+                        <li>سه اقدام هدفمند تشخیصی در این بیماران:
+                            <ul class="sub-list">
+                                <li>اقدام اول: تصویربرداری Pentacam
+                                    <ul class="sub-sub-list">
+                                        <li>رد کردن اکتازی قرنیه الزامی و صحیح‌ترین اقدام است</li>
+                                        <li>در یک چشم طبیعی پس از PRK میوپیک، پروفایل قرنیه oblate است</li>
+                                        <li>کاهش ضخامت باید دقیقاً متناسب با میزان ablation باشد</li>
+                                    </ul>
+                                </li>
+                                <li>اقدام دوم: معاینه دقیق عصب بینایی
+                                    <ul class="sub-sub-list">
+                                        <li>بیمار ممکن است به دلیل مصرف طولانی قطره استروئید دچار گلوکوم ثانویه شده باشد</li>
+                                    </ul>
+                                </li>
+                                <li>اقدام سوم: تصویربرداری OCT قرنیه
+                                    <ul class="sub-sub-list">
+                                        <li>برای تعیین عمق کدورت (اینکه در لایه ساب‌اپیتلیال است یا استروما) انجام می‌شود</li>
+                                        <li>برای برنامه‌ریزی درمان و آگاهی از ضخامت باقیمانده قرنیه مفید است</li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>درمان صحیح:
+                            <ul class="sub-list">
+                                <li><span class="highlight">کراتکتومی سطحی (SK) همراه با داروی میتومایسین سی (MMC) در چشم مبتلا</span></li>
+                                <li>در چشم مقابل که دید کامل دارد، هیچ اقدام درمانی لازم نیست</li>
+                            </ul>
+                        </li>
+                        <li>قاعده درمانی بسیار مهم در آزمون:
+                            <ul class="sub-list">
+                                <li>درمان هیز قرنیه و اصلاح شماره چشم (رفرکشن) نباید به‌طور همزمان انجام شود</li>
+                                <li>ابتدا باید هیز را با کراتکتومی سطحی درمان کرد</li>
+                                <li>سپس باید منتظر ماند تا رفرکشن بیمار پایدار شود</li>
+                                <li>در نهایت درباره اصلاح انکساری باقیمانده تصمیم‌گیری می‌شود</li>
+                            </ul>
+                        </li>
+                    </ul>
+
+                    <h4 class="sub-topic text-red-700">آنچه در مواجهه با هیز نباید انجام شود</h4>
+                    <ul class="academic-list">
+                        <li>انجام عمل PRK مجدد روی چشم مبتلا:
+                            <ul class="sub-list">
+                                <li>این کار کاملاً غلط است زیرا مصداق درمان همزمان هیز و رفرکشن است</li>
+                                <li>انجام عجولانه ablation باعث می‌شود بیمار over-correct شود (شماره چشم به سمت دوربینی برود)</li>
+                            </ul>
+                        </li>
+                        <li>انجام کراس‌لینکینگ روی هر دو چشم:
+                            <ul class="sub-list">
+                                <li>اگر اکتازی در توموگرافی اثبات نشده باشد، انجام کراس‌لینک هیچ اندیکاسیونی ندارد</li>
+                            </ul>
+                        </li>
+                        <li>بررسی حس قرنیه:
+                            <ul class="sub-list">
+                                <li>این یک تله امتحانی برای اشتباه گرفتن با ویروس تبخال (HSV) است</li>
+                                <li>کدورت هیز، نمای دندریتیک یا بستر التهابی مشابه کراتیت هرپسی را ندارد</li>
+                            </ul>
+                        </li>
+                    </ul>
+
+                    <h3 class="topic-title">نازک‌شدگی محیطی قرنیه (PUK و Mooren Ulcer)</h3>
+                    <ul class="academic-list">
+                        <li>چارچوب فکری برخورد با نازکی محیطی قرنیه:
+                            <ul class="sub-list">
+                                <li>قدم اول، تقسیم بیماران به دو دسته «همراه با التهاب» و «غیرالتهابی» است</li>
+                                <li>دسته همراه با التهاب شامل PUK، اولسر Mooren و کراتیت مارژینال (کاتارال) است</li>
+                                <li>دسته غیرالتهابی شامل دژنراسیون Terrien، دژنراسیون PMD و کراتیت مارژینال Fuchs است</li>
+                                <li><span class="highlight">فقدان درد و قرمزی در چشم، مهم‌ترین عامل برای رد کردن تشخیص PUK و Mooren است</span></li>
+                                <li>با این حال، حتی در تابلوی غیرالتهابی نیز باید بیماری‌های روماتولوژیک زمینه‌ای را در نظر داشت</li>
+                            </ul>
+                        </li>
+                        <li>کراتیت اولسراتیو محیطی (PUK):
+                            <ul class="sub-list">
+                                <li>به‌طور تیپیک یک‌طرفه است</li>
+                                <li>محدود به یک سکتور از قرنیه محیطی است (ضایعه در ناحیه‌ای تا 2 میلی‌متر از لیمبوس ظاهر می‌شود)</li>
+                                <li>با درجات متغیری از انسداد عروقی (vaso-occlusion) شبکه لیمبال مجاور همراه است</li>
+                                <li>اغلب اپی‌تلیوم غایب است و استرومای زیرین ذوب شده است</li>
+                                <li>شایع‌ترین بیماری سیستمیک مرتبط با آن، آرتریت روماتوئید (RA) است</li>
+                            </ul>
+                        </li>
+                        <li>اولسر Mooren (زخم مورن):
+                            <ul class="sub-list">
+                                <li>زخمی مزمن، به‌شدت دردناک و پیشرونده در قرنیه محیطی است</li>
+                                <li>از محیط قرنیه شروع شده و به سمت مرکز گسترش می‌یابد</li>
+                                <li>لبه مرکزی این زخم حالت نقب‌زده (undermined) دارد</li>
+                                <li>مهم‌ترین نکته تعریفی: <span class="highlight">Mooren یک تشخیص طردی است</span></li>
+                                <li>اگر بیماری زمینه‌ای شناخته‌شده (مثل روزاسه یا RA) وجود داشته باشد، نام آن PUK است نه مورن</li>
+                                <li>بررسی آزمایشگاهی ویروس هپاتیت C در این تابلو همواره توصیه می‌شود</li>
+                            </ul>
+                        </li>
+                        <li>آزمایش‌های سیستمیک برای رد PUK (در برخورد با تابلوی مشکوک):
+                            <ul class="sub-list">
+                                <li>آزمایش مدفوع (برای رد هلمینت در فرم آفریقایی مورن)</li>
+                                <li>تست هپاتیت C و HBsAb</li>
+                                <li>آزمایش CBC با شمارش ائوزینوفیل‌ها</li>
+                                <li>شاخص‌های التهابی ESR و CRP</li>
+                                <li>تست PPD برای رد سل (توبرکولوز)</li>
+                                <li>تست VDRL برای رد سیفلیس</li>
+                                <li>تست‌های اتوایمیون شامل RF، ANA، p-ANCA و c-ANCA</li>
+                                <li>تست‌های ACE و لیزوزیم سرم برای سارکوئیدوز</li>
+                                <li>در کنار این موارد، تصویربرداری توپوگرافی و AS-OCT برای ارزیابی آناتومیک قرنیه ضروری است</li>
+                            </ul>
+                        </li>
+                        <li>درمان نازکی محیطی قرنیه:
+                            <ul class="sub-list">
+                                <li>در مواردی که نازکی وسیع و خطر پارگی وجود دارد، گرافت تکتونیک (Annular lamellar patch graft) بهترین گزینه است</li>
+                                <li>استفاده از آمنیون چندلایه (Multilayer AMT) نیز یک گزینه جایگزین و قابل قبول است</li>
+                                <li><span class="highlight">داروهای سرکوب‌کننده سیستمیک ایمنی، تنها در صورتی مجازند که بیماری اتوایمیون زمینه‌ای اثبات شده باشد</span></li>
+                                <li>اگر آزمایشات منفی باشند و PUK رد شود، ایمونوساپرشن جایگاهی ندارد</li>
+                                <li>استفاده از استروئید موضعی در PUK فعال باید با احتیاط شدید همراه باشد (به دلیل خطر تشدید ذوب استرومایی)</li>
+                            </ul>
+                        </li>
+                    </ul>
+
+                    <h4 class="sub-topic text-red-700">آنچه در برخورد با نازکی محیطی نباید انجام شود</h4>
+                    <ul class="academic-list">
+                        <li>گرفتن کشت و اسمیر در تابلوی غیرالتهابی:
+                            <ul class="sub-list">
+                                <li>بیماری که درد، التهاب و اینفیلتراسیون ندارد عفونی نیست و کشت گرفتن خطاست</li>
+                            </ul>
+                        </li>
+                        <li>اکتفا به پیگیری (Observation) در نازکی‌های شدید:
+                            <ul class="sub-list">
+                                <li>حتی اگر بیماری غیرالتهابی باشد (مانند ترين پیشرفته)، ماهیت آن پیشرونده است و رها کردن بیمار خطرناک است</li>
+                            </ul>
+                        </li>
+                        <li>قرار دادن فلپ ملتحمه‌ای روی PUK فعال ایمنی:
+                            <ul class="sub-list">
+                                <li>نزدیک‌کردن عروق ملتحمه به ناحیه درگیر، ممکن است رسیدن آنزیم‌ها را بیشتر کرده و ذوب قرنیه (keratolysis) را تسریع کند</li>
+                            </ul>
+                        </li>
+                        <li>تجویز رژیم‌های درمانی تبخال (آسیکلوویر) برای تابلوی غیرالتهابی:
+                            <ul class="sub-list">
+                                <li>کاملاً بی‌مورد و خطاست</li>
+                            </ul>
+                        </li>
+                    </ul>
+
+                    <h3 class="topic-title">نکروز ایسکمیک پس از جراحی (SINS)</h3>
+                    <ul class="academic-list">
+                        <li>تعریف و مکانیسم:
+                            <ul class="sub-list">
+                                <li>مخفف Surgically Induced Necrotizing Scleritis است</li>
+                                <li>به معنای نکروز و ذوب شدن بستر جراحی اسکلرا و قرنیه است</li>
+                                <li>علت اصلی آن، ایسکمی (کاهش خون‌رسانی) موضعی پس از جراحی‌های چشمی است</li>
+                                <li>شایع‌ترین زمینه بروز آن، جراحی برداشتن ناخنک (pterygium) است</li>
+                            </ul>
+                        </li>
+                        <li>الگوی بالینی در بیمار:
+                            <ul class="sub-list">
+                                <li>بیمار با احساس جسم خارجی و قرمزی چشم مراجعه می‌کند</li>
+                                <li>در معاینه، یک ناحیه سفید و کاملاً آواسکولار (بدون رگ) در محل جراحی قبلی دیده می‌شود</li>
+                                <li>این ناحیه دارای نازک‌شدگی است و در تست فلورسئین Pooling (تجمع رنگ) نشان می‌دهد</li>
+                                <li><span class="highlight">سابقه جراحی اخیر ناخنک (مثلاً ۱۰ روز قبل)، مهم‌ترین سرنخ در شرح‌حال بیمار است</span></li>
+                            </ul>
+                        </li>
+                        <li>اقدام تشخیصی اولیه و حیاتی:
+                            <ul class="sub-list">
+                                <li>گرفتن کشت و اسمیر از بستر ضایعه کاملاً ضروری است</li>
+                                <li>هدف از این کار، رد کردن «اسکلریت عفونی» است که تابلوی مشابه و بسیار خطرناکی دارد</li>
+                                <li>انجام آزمایشات سیستمیک برای رد بیماری ایمنی زمینه‌ای (مانند آرتریت روماتوئید) نیز لازم است</li>
+                            </ul>
+                        </li>
+                        <li>تفسیر نتایج و تأیید تشخیص:
+                            <ul class="sub-list">
+                                <li>اگر نتیجه کشت میکروبی منفی باشد، تشخیص SINS تأیید می‌شود</li>
+                                <li>منفی بودن کشت، پزشک را از شروع رژیم‌های آنتی‌بیوتیکی بسیار تهاجمی معاف می‌کند</li>
+                            </ul>
+                        </li>
+                        <li>درمان صحیح:
+                            <ul class="sub-list">
+                                <li>از آنجا که مشکل اصلی ایسکمی و نبود خون‌رسانی است، درمان جراحی است</li>
+                                <li><span class="highlight">چرخاندن یک فلپ از ملتحمه مجاور (Rotational conjunctival flap) روی ضایعه، درمان انتخابی است</span></li>
+                                <li>این کار خون‌رسانی و حمایت تغذیه‌ای را به بستر ایسکمیک برمی‌گرداند</li>
+                            </ul>
+                        </li>
+                    </ul>
+
+                    <h4 class="sub-topic text-red-700">آنچه در مواجهه با SINS نباید انجام شود</h4>
+                    <ul class="academic-list">
+                        <li>بستری کردن بیمار و تجویز آنتی‌بیوتیک فورتیفاید وسیع‌الطیف:
+                            <ul class="sub-list">
+                                <li>وقتی کشت منفی است و شواهد عفونت وجود ندارد، این کار اندیکاسیونی ندارد</li>
+                                <li>دام امتحانی: هر ذوب شدگی قرنیه، لزوماً کراتیت عفونی نیست</li>
+                            </ul>
+                        </li>
+                        <li>انجام کراتکتومی سطحی همراه با میتومایسین (SK + MMC):
+                            <ul class="sub-list">
+                                <li>داروی MMC خود عامل اصلی ایجاد ایسکمی است</li>
+                                <li>برداشتن بافت و اعمال مجدد این دارو، نکروز را به شدت تشدید می‌کند</li>
+                            </ul>
+                        </li>
+                        <li>فریب خوردن از ظاهر ضایعه:
+                            <ul class="sub-list">
+                                <li>سفید و آرام بودن بستر ضایعه نشانه بهبود نیست، بلکه نشانه قطع کامل خون‌رسانی (آواسکولار بودن) است</li>
+                            </ul>
+                        </li>
+                        <li>صرف‌نظر کردن از گرفتن نمونه کشت:
+                            <ul class="sub-list">
+                                <li>حذف اسکلریت عفونی از فهرست افتراقی‌ها صرفاً به دلیل وجود سابقه جراحی، خطای بزرگی است</li>
+                            </ul>
+                        </li>
+                    </ul>
+
+                    <h3 class="topic-title">کراتیت عفونی پس از جراحی و پیشرفت به اندوفتالمیت</h3>
+                    <ul class="academic-list">
+                        <li>الگوی بالینی:
+                            <ul class="sub-list">
+                                <li>بیمار با درد شدید، قرمزی و ترشح چرکی پس از جراحی کاتاراکت مراجعه می‌کند</li>
+                                <li>بازه زمانی اندوفتالمیت حاد پس از جراحی تا ۶ هفته است</li>
+                                <li>در معاینه اسلیت‌لمپ: ارتشاح (اینفیلتراسیون) قرنیه، هیپوپیون، ادم و بخیه آلوده یا رهاشده دیده می‌شود</li>
+                            </ul>
+                        </li>
+                        <li>قدم‌های تشخیصی اولیه:
+                            <ul class="sub-list">
+                                <li><span class="highlight">قدم اول همواره گرفتن اسمیر و کشت از محل اینفیلترا است</span></li>
+                                <li>بازده میکروبی پیش از شروع هرگونه آنتی‌بیوتیک بسیار بالاتر است</li>
+                                <li>قاعده ظاهری مرزها (Border rule): حاشیه شارپ و مشخص نشانه عفونت باکتریال است</li>
+                                <li>در مقابل، حاشیه پَرمانند (feathery) همراه با ضایعات اقماری نشانه عفونت قارچی است</li>
+                            </ul>
+                        </li>
+                        <li>اقدامات درمانی حیاتی در اورژانس:
+                            <ul class="sub-list">
+                                <li>خارج کردن بخیه‌های آلوده الزامی است (کنترل منبع یا Source control)</li>
+                                <li>بدون خارج کردن منبع عفونت، هیچ آنتی‌بیوتیکی قادر به کنترل ارتشاح نخواهد بود</li>
+                                <li>اگر به دلیل کدورت قرنیه نمای فوندوس (شبکیه) قابل مشاهده نیست، انجام سونوگرافی B-scan الزامی است</li>
+                                <li>ثبت دقیق بهترین دید بیمار (VA) برای تعیین مسیر درمانی بعدی کاملاً ضروری است</li>
+                            </ul>
+                        </li>
+                        <li>تأیید اندوفتالمیت و رویکرد دارویی:
+                            <ul class="sub-list">
+                                <li>مشاهده اکوهای هایپررفلکتیو در فضای ویتره در B-scan، اندوفتالمیت را ثابت می‌کند</li>
+                                <li>قاعده نیمه‌شب: <span class="highlight">تزریق داخل ویتره آنتی‌بیوتیک باید همان لحظه و بدون انتظار برای جواب کشت انجام شود</span></li>
+                                <li>داروهای انتخابی استاندارد برای تزریق داخل ویتره، ترکیب وانکومایسین و سفتازیدیم هستند</li>
+                                <li>سفتازیدیم به دلیل سمیت کمتر برای شبکیه، امروزه جایگزین آمیکاسین شده است</li>
+                            </ul>
+                        </li>
+                        <li>قواعد مطالعه بالینی EVS (Endophthalmitis Vitrectomy Study):
+                            <ul class="sub-list">
+                                <li>در بیمارانی که دید آن‌ها بهتر از درک نور (LP) است، پیامد ویترکتومی فوری تفاوتی با درمان تزریقی (Tap and Inject) ندارد</li>
+                                <li>اما در بیمارانی که دید آن‌ها در حد درک نور (LP) کاهش یافته است، انجام ویترکتومی فوری نتایج بینایی بسیار بهتری دارد</li>
+                                <li>افزودن آنتی‌بیوتیک سیستمیک تفاوتی در دید نهایی بیماران ایجاد نمی‌کند</li>
+                            </ul>
+                        </li>
+                    </ul>
+
+                    <h4 class="sub-topic text-red-700">آنچه در مواجهه با اندوفتالمیت نباید انجام شود</h4>
+                    <ul class="academic-list">
+                        <li>درخواست سی‌تی‌اسکن اربیت در قدم اول:
+                            <ul class="sub-list">
+                                <li>این تصویربرداری برای اندوفتالمیت یا کراتیت ساده بی‌مورد است</li>
+                                <li>فقط زمانی کاربرد دارد که شک به سلولیت اربیت، پان‌افتالمیت یا جسم خارجی در حوادث انفجاری وجود داشته باشد</li>
+                            </ul>
+                        </li>
+                        <li>معطل ماندن درمان تا آماده شدن جواب کشت:
+                            <ul class="sub-list">
+                                <li>گرفتن نمونه الزامی است، اما تأخیر در تزریق داخل ویتره تا روز بعد یا تا آماده شدن جواب آزمایش، زمان طلایی نجات چشم را از بین می‌برد</li>
+                            </ul>
+                        </li>
+                        <li>تزریق آنتی‌بیوتیک در فضای ساب‌تنون:
+                            <ul class="sub-list">
+                                <li>این روش در اورژانس منفعت ثابت‌شده‌ای برای کنترل عفونت داخل چشمی ندارد</li>
+                            </ul>
+                        </li>
+                        <li>انجام تپ اتاق قدامی (AC Tap) در کراتیت ساده:
+                            <ul class="sub-list">
+                                <li>اگر بیمار فقط کراتیت عفونی دارد و اندوفتالمیت اثبات نشده است، نمونه‌گیری از اتاق قدامی جایگاهی ندارد</li>
+                            </ul>
+                        </li>
+                    </ul>
+
+                    <h3 class="topic-title">کراتیت آکانتامبا (Acanthamoeba Keratitis)</h3>
+                    <ul class="academic-list">
+                        <li>ارگانیسم و عوامل خطر:
+                            <ul class="sub-list">
+                                <li>آکانتامبا یک پروتوزوئر آزادزی است که در آب شیرین و خاک یافت می‌شود</li>
+                                <li>انجماد، خشکی محیط و کلر موجود در آب شهری قادر به کشتن این انگل نیست</li>
+                                <li>در کشورهای توسعه‌یافته، حدود ۹۰ درصد موارد ابتلا با استفاده از لنز تماسی مرتبط است</li>
+                                <li>شنا در استخر یا برکه همراه با لنز تماسی، خطر ابتلا را به شدت بالا می‌برد</li>
+                            </ul>
+                        </li>
+                        <li>تابلوی بالینی شاخص:
+                            <ul class="sub-list">
+                                <li>بیمار با <span class="highlight">درد شدید و نامتناسب با ظاهر بالینی چشم</span> مراجعه می‌کند</li>
+                                <li>ترس از نور (فوتوفوبی) و سیر طولانیِ مقاوم به درمان‌های رایج وجود دارد</li>
+                                <li>علت اصلی این درد شدید، درگیری اعصاب قرنیه یا perineuritis است</li>
+                                <li>یافته بالینی radial keratoneuritis تقریباً برای آکانتامبا پاتوگنومونیک (اختصاصی) است</li>
+                            </ul>
+                        </li>
+                        <li>مراحل پیشرفت بیماری و اشتباهات تشخیصی:
+                            <ul class="sub-list">
+                                <li>در مراحل اولیه، ضایعات محدود به اپی‌تلیوم هستند و نمای کاذب شبه‌دندریتی (pseudodendrite) ایجاد می‌کنند</li>
+                                <li>این نما اغلب با کراتیت هرپسی اشتباه گرفته شده و به غلط با ضدویروس و استروئید درمان می‌شود</li>
+                                <li>در فاز پیشرفته، عفونت به استروما نفوذ کرده و یک ارتشاح حلقوی (ring infiltrate) در مرکز قرنیه می‌سازد</li>
+                                <li>برای افتراق از هرپس: در آکانتامبا درد بسیار شدیدتر است، سابقه تماس با آب/لنز وجود دارد و درمان ضدویروسی شکست می‌خورد</li>
+                            </ul>
+                        </li>
+                        <li>مسیر تشخیصی:
+                            <ul class="sub-list">
+                                <li>محیط کشت استاندارد برای این انگل، آگار غیرمغذی (non-nutrient agar) پوشیده شده با باکتری E. coli است</li>
+                                <li>اما کشت انگل تنها در ۳۵ تا ۵۰ درصد موارد مثبت می‌شود و زمان‌بر است</li>
+                                <li><span class="highlight">میکروسکوپ کانفوکال زنده (In vivo confocal microscopy) بهترین روش غیرتهاجمی برای اثبات تشخیص است</span></li>
+                                <li>در این روش کیست‌های دوجداره انگل مستقیماً مشاهده می‌شوند</li>
+                                <li>منطق بالینی: به محض دیدن کیست در کانفوکال یا شک بالینی قوی، درمان آغاز می‌شود و نباید معطل جواب کشت ماند</li>
+                            </ul>
+                        </li>
+                        <li>درمان دارویی:
+                            <ul class="sub-list">
+                                <li>داروهای خط اول، دسته‌ای از مواد شیمیایی به نام بیگوانیدها هستند</li>
+                                <li>دو داروی اصلی این دسته PHMB 0.02% و کلرهگزیدین 0.02% هستند</li>
+                                <li>اهمیت این داروها در این است که هم تروفوزوئیت زنده و هم فرم کیست مقاوم انگل را از بین می‌برند</li>
+                                <li>سایر داروها (مثل آزول‌ها) معمولاً فقط روی تروفوزوئیت اثر دارند و نقش کمکی ایفا می‌کنند</li>
+                                <li>دوره درمان بسیار طولانی است: ۳ تا ۴ ماه برای بیماری زودرس، و بیش از ۱ سال برای درگیری‌های عمقی</li>
+                            </ul>
+                        </li>
+                        <li>نقش جراحی (کراتوپلاستی):
+                            <ul class="sub-list">
+                                <li><span class="highlight">پیوند قرنیه با هدف بهبود دید (اپتیکال) فقط و فقط پس از اتمام کامل دوره درمان دارویی مجاز است</span></li>
+                                <li>قطع زودرس دارو و انجام عمل جراحی خطر عود مجدد عفونت در پیوند را به شدت بالا می‌برد</li>
+                                <li>استثنا: تنها در صورتی که قرنیه سوراخ شود (پرفوراسیون اورژانسی)، پیوند تکتونیک برای حفظ کره چشم انجام می‌شود</li>
+                            </ul>
+                        </li>
+                    </ul>
+
+                    <h4 class="sub-topic text-red-700">آنچه در مواجهه با آکانتامبا نباید انجام شود</h4>
+                    <ul class="academic-list">
+                        <li>تجویز استروئید پیش از شروع داروی ضدآمیبی مؤثر:
+                            <ul class="sub-list">
+                                <li>استروئید باعث خروج انگل از فاز کیستی (excystment) شده و سیر بیماری را به شدت بدتر می‌کند</li>
+                            </ul>
+                        </li>
+                        <li>تداوم درمان ضدویروسی برای ضایعه شبه‌دندریتی:
+                            <ul class="sub-list">
+                                <li>چسبیدن به برچسب «هرپس مقاوم» و عدم بازنگری تشخیص در بیمار مصرف‌کننده لنز، تله کلاسیک این بیماری است</li>
+                            </ul>
+                        </li>
+                        <li>درخواست AS-OCT در فاز حاد:
+                            <ul class="sub-list">
+                                <li>این تصویربرداری در مرحله حاد هیچ کمکی به تشخیص یا تعیین عمق عفونت نمی‌کند</li>
+                            </ul>
+                        </li>
+                        <li>نمونه‌گیری از اتاق قدامی (AC Tap):
+                            <ul class="sub-list">
+                                <li>سوزن زدن به اتاق قدامی در کراتیت آکانتامبا جایگاهی ندارد و عفونت را گسترش می‌دهد</li>
+                            </ul>
+                        </li>
+                        <li>انجام عمل پیوند قرنیه فوری به امید پاکسازی عفونت:
+                            <ul class="sub-list">
+                                <li>این کار کاملاً اشتباه است و منجر به عود عفونت در بافت پیوندی جدید می‌شود</li>
+                            </ul>
+                        </li>
+                    </ul>
+
+                    <h3 class="topic-title">دیستروفی‌های اندوتلیال قرنیه</h3>
+                    <ul class="academic-list">
+                        <li>قاعده کلی و مکانیسم:
+                            <ul class="sub-list">
+                                <li>مکانیسم مشترک در تمام این دیستروفی‌ها، اختلال عملکرد پمپ سلول‌های اندوتلیوم است</li>
+                                <li>این نارسایی منجر به تجمع مایع در استروما و در نهایت ادم قرنیه می‌شود</li>
+                                <li><span class="highlight">در هیچ‌یک از دیستروفی‌های اندوتلیال، عارضه هیدروپس (Hydrops) رخ نمی‌دهد؛ هیدروپس مختص اکتازی‌هاست</span></li>
+                            </ul>
+                        </li>
+                        <li>دیستروفی Fuchs (FECD):
+                            <ul class="sub-list">
+                                <li>بیماری معمولاً از دهه چهارم زندگی به بعد تظاهر می‌کند</li>
+                                <li>توارث آن در فرم‌های دیرهنگام اغلب نامشخص است اما موارد اتوزومال غالب نیز دیده می‌شود</li>
+                                <li>نمای شاخص آن وجود cornea guttae (نقاط برجسته) در مرکز قرنیه است</li>
+                                <li>این ضایعات در صورت به هم پیوستن، نمای فلز چکش‌خورده (beaten metal) را ایجاد می‌کنند</li>
+                                <li>علامت کلاسیک بالینی، تاری دید صبحگاهی است که به علت کاهش تبخیر اشک در طول خواب ایجاد می‌شود</li>
+                                <li>درمان در مراحل اولیه شامل استفاده از قطره‌های نمکی هایپرتونیک (NaCl 5%) است</li>
+                                <li>درمان قطعی در مراحل پیشرفته، پیوند لایه اندوتلیال (روش‌های DMEK یا DSAEK) است</li>
+                            </ul>
+                        </li>
+                        <li>دیستروفی پلی‌مورفوس خلفی (PPCD/PPMD):
+                            <ul class="sub-list">
+                                <li>توارث این بیماری اتوزومال غالب است و معمولاً دوطرفه بروز می‌کند</li>
+                                <li>نمای مشخصه آن شامل وزیکول‌های گروهی و باندهای اندوتلیالی با لبه‌های دندانه‌دار (scalloped) است</li>
+                                <li>از نظر پاتولوژی، سلول‌های اندوتلیال در این بیماری ماهیتی شبیه به سلول‌های اپی‌تلیوم پیدا می‌کنند</li>
+                                <li>در حدود ۱۴ درصد از بیماران، فشار چشم (IOP) افزایش می‌یابد و گلوکوم ایجاد می‌شود</li>
+                                <li>نکته افتراقی کلیدی: این بیماری برخلاف سندرم ICE که یک‌طرفه و اسپورادیک است، معمولاً دوطرفه و دارای سابقه خانوادگی است</li>
+                            </ul>
+                        </li>
+                        <li>دیستروفی مادرزادی CHED:
+                            <ul class="sub-list">
+                                <li>توارث آن اتوزومال مغلوب است</li>
+                                <li>بیماری از بدو تولد با کدورت و ادم منتشر مادرزادی قرنیه (نمای ground-glass) تظاهر می‌کند</li>
+                                <li>ضخامت قرنیه در این نوزادان به ۲ تا ۳ برابر حد طبیعی می‌رسد</li>
+                                <li>افتراق حیاتی: این بیماری برخلاف گلوکوم مادرزادی، فاقد اشک‌ریزش و فوتوفوبی بارز است</li>
+                            </ul>
+                        </li>
+                    </ul>
+
+                    <h3 class="topic-title">جداشدگی غشای دسمه (Descemet Membrane Detachment)</h3>
+                    <ul class="academic-list">
+                        <li>تعریف و زمان بروز:
+                            <ul class="sub-list">
+                                <li>مخفف DMD است و یکی از عوارض جراحی‌های داخل چشمی (مانند عمل فیکو برای آب مروارید) محسوب می‌شود</li>
+                                <li>معمولاً بر اثر ورود ابزار جراحی یا تزریق ناخواسته مایعات زیر غشای دسمه رخ می‌دهد</li>
+                                <li>قاعده تشخیصی: <span class="highlight">هرگونه ادم موضعی قرنیه که از روز اول پس از جراحی دقیقاً منطبق بر محل برش دیده شود، DMD است تا خلاف آن ثابت شود</span></li>
+                            </ul>
+                        </li>
+                        <li>مراحل مدیریت و درمان:
+                            <ul class="sub-list">
+                                <li>پله اول (مشاهده): جداشدگی‌های کوچک که در محیط قرنیه و خارج از محور بینایی هستند، معمولاً خودبه‌خود می‌چسبند</li>
+                                <li>پله دوم (گاز داخل اتاق قدامی): برای جداشدگی‌های قابل‌توجه، تزریق گاز (مانند SF6) به داخل اتاق قدامی برای تامپوناد و چسباندن مجدد غشا انجام می‌شود</li>
+                                <li>گاز SF6 تامپوناد طولانی‌تری (۴ تا ۷ روز) نسبت به هوا ایجاد می‌کند</li>
+                                <li>پله سوم (بخیه فشاری): در صورت عدم پاسخ به گاز، استفاده از بخیه‌های فشاری (compression suture) موازی با لبه جداشدگی مطرح می‌شود</li>
+                                <li>پله چهارم (پیوند لایه‌ای): اگر غشا نچسبید و قرنیه کاملاً دکامپانسه شد، جراحی پیوند اندوتلیوم (DSAEK) قدم نهایی است</li>
+                            </ul>
+                        </li>
+                    </ul>
+
+                    <h4 class="sub-topic text-red-700">آنچه در مواجهه با ادم مکانیکی پس از جراحی نباید انجام شود</h4>
+                    <ul class="academic-list">
+                        <li>شروع داروهای ضدعفونت:
+                            <ul class="sub-list">
+                                <li>شروع قطره‌های فورتیفاید آنتی‌بیوتیک یا آسیکلوویر خوراکی کاملاً خطاست</li>
+                                <li>این یک ادم مکانیکی ناشی از جداشدگی است، نه یک عفونت باکتریایی یا ویروسی</li>
+                            </ul>
+                        </li>
+                        <li>انجام پیوند تمام‌ضخامت قرنیه (PKP):
+                            <ul class="sub-list">
+                                <li>پیوند نافذ قرنیه به هیچ عنوان قدم اول یا حتی قدم دوم درمانی برای این عارضه نیست</li>
+                            </ul>
+                        </li>
+                        <li>تزریق حجم زیادی از گاز بدون احتیاط:
+                            <ul class="sub-list">
+                                <li>رها کردن یک حباب گاز بزرگ در اتاق قدامی بدون انجام ایریدکتومی محیطی، خطر بروز pupillary block و افزایش شدید فشار چشم را به همراه دارد</li>
+                            </ul>
+                        </li>
+                    </ul>
+
+                </div>
+
+                <div id="sec-2" class="section-content">
+                    <h2 class="chapter-title">بخش دوم: شبکیه و اووئیت</h2>
+
+                    <h3 class="topic-title">پولیپوئیدال (PCV) و دژنراسیون ماکولای مقاوم به درمان</h3>
+                    <ul class="academic-list">
+                        <li>تعریف و جایگاه بالینی:
+                            <ul class="sub-list">
+                                <li>مخفف Polypoidal Choroidal Vasculopathy است</li>
+                                <li>یکی از واریانت‌های نئوواسکولاریزاسیون کوروئید (MNV) نوع ۱ محسوب می‌شود</li>
+                                <li>در این بیماری شبکه‌ای از پولیپ‌ها همراه با جداشدگی‌های اپی‌تلیوم رنگدانه‌ای (PED) متعدد و راجعه دیده می‌شود</li>
+                                <li>در بیماران آسیایی سهم بالایی (۲۰ تا ۵۰ درصد) از کل موارد دژنراسیون مرطوب ماکولا را تشکیل می‌دهد</li>
+                            </ul>
+                        </li>
+                        <li>کلید تشخیص بالینی در بیمارستان:
+                            <ul class="sub-list">
+                                <li><span class="highlight">هر بیمار مبتلا به nAMD که به تزریق‌های مکرر داروی بواسیزوماب (آواستین) پاسخ نمی‌دهد، قویاً مشکوک به PCV است</span></li>
+                                <li>پزشک باید در تشخیص اولیه شک کرده و بررسی‌های تصویربرداری مجدد انجام دهد</li>
+                            </ul>
+                        </li>
+                        <li>بیومارکرهای تشخیصی در OCT ماکولا:
+                            <ul class="sub-list">
+                                <li>Thumb PED: یک PED برجسته با قله‌ای بسیار تیز (حالت M-shaped یا شبیه به کمپلکس QRS در نوار قلب) که مختص این بیماری است</li>
+                                <li>Notched PED: یک PED بلند که در طرفین به PEDهای کوتاه‌تر متصل است و یک فرورفتگی (notch) در محل اتصال دارد؛ این فرورفتگی دقیقاً محل قرارگیری پولیپ است</li>
+                                <li>Double-layer sign: جداشدگی کم‌ارتفاع و نامنظم لایه RPE از خط بروک؛ این الگو نشان‌دهنده شبکه عروقی منشعب‌شونده است</li>
+                                <li>خطر پارگی (RPE tear): اگر ارتفاع PED در OCT بیشتر از 600 میکرومتر باشد، بیمار در معرض خطر بالای پارگی RPE پس از تزریق ضدگلوکوم قرار دارد</li>
+                            </ul>
+                        </li>
+                        <li>روش‌های تصویربرداری پیشرفته و درمان:
+                            <ul class="sub-list">
+                                <li>تصویربرداری ICGA استاندارد طلایی و دقیق‌ترین روش برای رؤیت مستقیم پولیپ‌ها است</li>
+                                <li>با این حال، به صورت عملی شروع درمان تنها بر اساس الگوهای قوی در OCT نیز کاملاً پذیرفته شده و صحیح است</li>
+                                <li>خط اول درمان (بر اساس مطالعه EVEREST): ترکیبی از لیزر PDT همراه با تزریق داروی ضد-VEGF</li>
+                                <li>درمان جایگزین (بر اساس مطالعه PLANET): استفاده از داروی Aflibercept (آیلیا) به تنهایی نیز رویکردی منطقی و پذیرفته شده است</li>
+                            </ul>
+                        </li>
+                        <li>پروتکل درمانی Treat-and-Extend (T&E):
+                            <ul class="sub-list">
+                                <li>در این رژیم، تزریق ابتدا به صورت ماهانه تا خشک شدن کامل مایع انجام می‌شود</li>
+                                <li>سپس فاصله‌های بین ویزیت‌ها به‌تدریج (معمولاً در گام‌های ۲ هفته‌ای) افزایش می‌یابد</li>
+                                <li><span class="highlight">مهم‌ترین قاعده: در هر ویزیت از قبل برنامه‌ریزی‌شده، تزریق باید حتماً انجام شود، چه مایع در چشم وجود داشته باشد و چه خشک شده باشد</span></li>
+                                <li>اگر پس از افزایش فاصله، مایع مجدداً ظاهر شد، فاصله ویزیت بعدی دوباره کوتاه‌تر می‌شود</li>
+                            </ul>
+                        </li>
+                    </ul>
+
+                    <h4 class="sub-topic text-red-700">آنچه در درمان PCV نباید انجام شود</h4>
+                    <ul class="academic-list">
+                        <li>تداوم تزریق‌های بی‌فایده:
+                            <ul class="sub-list">
+                                <li>تزریق مجدد داروی بواسیزوماب پس از شکست‌های مکرر قبلی، نشان‌دهنده غفلت از تغییر تشخیص به PCV است</li>
+                            </ul>
+                        </li>
+                        <li>تغییر رژیم T&E به حالت درمانی PRN:
+                            <ul class="sub-list">
+                                <li>دستور «تزریق در ویزیت بعدی فقط در صورتی که مایع وجود داشت» معادل رژیم PRN (بر حسب نیاز) است و ناقض اصول درمانی T&E است</li>
+                            </ul>
+                        </li>
+                        <li>اقدامات درمانی نامرتبط:
+                            <ul class="sub-list">
+                                <li>تجویز تریامسینولون داخل ویتره یا استفاده از لیزر ماکولار (زرد/قرمز) هیچ جایگاهی در مدیریت این بیماری ندارند</li>
+                            </ul>
+                        </li>
+                    </ul>
+
+                    <h3 class="topic-title">انسداد ورید مرکزی شبکیه (CRVO)</h3>
+                    <ul class="academic-list">
+                        <li>معیارهای افتراق نوع ایسکمیک از غیرایسکمیک (بر اساس مطالعه CVOS):
+                            <ul class="sub-list">
+                                <li>وضعیت دید: دید بهتر از 20/200 معمولاً غیرایسکمیک و دید بدتر از آن به نفع ایسکمیک است</li>
+                                <li>مردمک: تست RAPD در نوع غیرایسکمیک منفی و در نوع ایسکمیک به‌طور واضح مثبت است</li>
+                                <li>آنژیوگرافی (FA): <span class="highlight">وجود نان‌پرفیوژن مویرگی به وسعت بیشتر یا مساوی 10 دیسک‌اریا (DA)، معیار قطعی برای تعریف CRVO ایسکمیک است</span></li>
+                            </ul>
+                        </li>
+                        <li>سیر بالینی و خطرات بیماری:
+                            <ul class="sub-list">
+                                <li>بیماری می‌تواند از فرم غیرایسکمیک به ایسکمیک تبدیل شود (خطر آن در ۳۶ ماه حدود ۳۴ درصد است)</li>
+                                <li>در نوع شدیداً ایسکمیک، احتمال بروز عروق غیرطبیعی (NVI) در بخش قدامی چشم به حدود ۶۰ درصد می‌رسد</li>
+                                <li>اوج بروز این عروق خطرناک، تقریباً ۲ ماه پس از شروع بیماری است</li>
+                                <li>به همین دلیل، انجام گونیوسکوپی هم در بدو مراجعه و هم در ویزیت‌های پیگیری، برای نجات چشم حیاتی است</li>
+                            </ul>
+                        </li>
+                        <li>رویکرد درمانی بر اساس وضعیت بالینی:
+                            <ul class="sub-list">
+                                <li>داروهای ضد-VEGF تنها برای درمان ورم ماکولا (CME) و کنترل عروق غیرطبیعی کاربرد دارند</li>
+                                <li>اگر بیمار فرم غیرایسکمیک داشته باشد و در OCT هیچ ورم ماکولایی دیده نشود، تزریق دارو لازم نیست</li>
+                                <li>در این حالت، اقدام صحیح مشاهده و پیگیری ماهانه بیمار برای ۶ ماه نخست است</li>
+                                <li>لیزر درمانی (PRP): انجام پروفیلاکتیک این لیزر قبل از بروز عروق غیرطبیعی تأثیری در کاهش خطر ندارد</li>
+                                <li>لیزر PRP تنها زمانی انجام می‌شود که عروق غیرطبیعی در معاینات رؤیت شوند</li>
+                            </ul>
+                        </li>
+                    </ul>
+
+                    <h4 class="sub-topic text-red-700">آنچه در CRVO نباید انجام شود</h4>
+                    <ul class="academic-list">
+                        <li>تزریق دارو در غیاب ورم ماکولا:
+                            <ul class="sub-list">
+                                <li>شروع تزریق دوره‌ای anti-VEGF در یک چشم غیرایسکمیکِ فاقد ادم، اندیکاسیونی ندارد</li>
+                            </ul>
+                        </li>
+                        <li>فواصل پیگیری طولانی:
+                            <ul class="sub-list">
+                                <li>تنظیم ویزیت «سالانه» برای بیماری که به‌تازگی دچار CRVO شده، باعث از دست رفتن زمان طلایی برای تشخیص گلوکوم نئوواسکولار می‌شود (پیگیری باید ماهانه باشد)</li>
+                            </ul>
+                        </li>
+                        <li>لیزر زودرس یا نابجا:
+                            <ul class="sub-list">
+                                <li>انجام لیزر Grid روی ماکولا در CRVO بهبود دید ایجاد نمی‌کند</li>
+                                <li>انجام لیزر PRP پیش از رؤیت اولین نشانه‌های نئوواسکولاریزاسیون توصیه نمی‌شود</li>
+                            </ul>
+                        </li>
+                    </ul>
+
+                    <h3 class="topic-title">همانژیوبلاستومای شبکیه و سندرم VHL</h3>
+                    <ul class="academic-list">
+                        <li>ویژگی‌های سندرم زمینه‌ای (Von Hippel-Lindau):
+                            <ul class="sub-list">
+                                <li>یک بیماری با توارث اتوزومال غالب است (جهش در کروموزوم 3)</li>
+                                <li>تظاهرات اصلی سیستمیک آن شامل کارسینوم سلول کلیوی (RCC)، فئوکروموسیتوم و تومورهای مغزی-نخاعی است</li>
+                                <li>در حدود ۵۰ درصد از بیماران، درگیری چشم به‌صورت دوطرفه رخ می‌دهد</li>
+                            </ul>
+                        </li>
+                        <li>نمای مشخصه فوندوس چشم:
+                            <ul class="sub-list">
+                                <li>تومور به شکل یک توده نارنجی-قرمز دیده می‌شود</li>
+                                <li>امضای تشخیصی این ضایعه: <span class="highlight">یک شریان متسع و پرپیچ‌وخم خون را به تومور می‌آورد (آوران) و یک ورید متسع خون را از آن خارج می‌کند (وابران)</span></li>
+                            </ul>
+                        </li>
+                        <li>الزامات بررسی سیستمیک و پیگیری:
+                            <ul class="sub-list">
+                                <li>معاینه بسیار دقیق چشم مقابل کاملاً ضروری است</li>
+                                <li>انجام مشاوره ژنتیک برای بیمار و معاینه سایر افراد خانواده الزامی است</li>
+                                <li>انجام MRI دوره‌ای از مغز و نخاع و سونوگرافی از شکم (هر ۱ تا ۲ سال) برای پیشگیری از مرگ‌ومیر احشایی لازم است</li>
+                            </ul>
+                        </li>
+                        <li>اصول درمان لیزری تومور محیطی:
+                            <ul class="sub-list">
+                                <li>درمان با استفاده از لیزر مستقیم روی خود توده و همچنین روی رگ آوران (تغذیه‌کننده) انجام می‌شود</li>
+                                <li><span class="highlight text-red-600 font-black">هشدار حیاتی:</span> هرگز در مرحله اول رگ وابران (خارج‌کننده) را لیزر نکنید</li>
+                                <li>بستن رگ خروجی پیش از رگ ورودی، باعث احتقان شدید توده و خونریزی ویرانگر در داخل چشم می‌شود</li>
+                            </ul>
+                        </li>
+                    </ul>
+
+                    <h3 class="topic-title">همانژیوم محدود کوروئید (Circumscribed Choroidal Hemangioma)</h3>
+                    <ul class="academic-list">
+                        <li>نمای بالینی و سونوگرافی:
+                            <ul class="sub-list">
+                                <li>به صورت یک توده نارنجی‌رنگ با مرزهای مشخص در بافت کوروئید تظاهر می‌کند</li>
+                                <li>در سونوگرافی B-scan، این تومور خاصیت بازتاب‌دهندگی بالایی (highly echographic) است</li>
+                            </ul>
+                        </li>
+                        <li>تصویربرداری و تشخیص طلایی:
+                            <ul class="sub-list">
+                                <li>تشخیصی‌ترین ابزار برای این تومور، آنژیوگرافی با ایندوسیانین سبز (ICGA) است</li>
+                                <li>الگوی پاتوگنومونیک در ICGA: <span class="highlight">تومور در فاز اولیه به سرعت پر از رنگ می‌شود، اما در فاز تأخیری رنگ را به طور کامل از دست می‌دهد (پدیده Washout)</span></li>
+                                <li>تومورهای متاستاتیک (مثل سرطان‌های تیروئید یا کارسینوئید) از نظر رنگ بسیار شبیه همانژیوم هستند، اما پدیده Washout را در ICGA ندارند</li>
+                            </ul>
+                        </li>
+                        <li>منطق درمانی:
+                            <ul class="sub-list">
+                                <li>اگر توده باعث تجمع مایع در زیر شبکیه شده و دید مرکزی را تهدید کند، درمان با لیزر PDT (فتودینامیک تراپی) بهترین انتخاب است</li>
+                                <li>پس از انجام PDT، اگر مایع شبکیه کاملاً خشک شد اما خود توده همچنان باقی ماند، اقدام صحیح فقط پیگیری است</li>
+                                <li>هدف از درمان، رفع مایع تهدیدکننده است، نه لزوماً محو کردن کامل تومور خوش‌خیم</li>
+                            </ul>
+                        </li>
+                    </ul>
+
+                    <h3 class="topic-title">رتینوسکیزیس وابسته به کروموزوم ایکس (XLRS)</h3>
+                    <ul class="academic-list">
+                        <li>تابلوی شاخص بالینی:
+                            <ul class="sub-list">
+                                <li>این بیماری عمدتاً در پسربچه‌ها و در سنین مدرسه رخ می‌دهد</li>
+                                <li>نمای کلاسیک آن در ماکولا، ایجاد شکاف با چین‌های شبیه به پره‌های چرخ (spoke-wheel) است</li>
+                                <li>در OCT، جدایش لایه‌های داخلی شبکیه به وضوح دیده می‌شود</li>
+                                <li>اگر پسربچه‌ای بدون سابقه ضربه دچار خونریزی ناگهانی ویتره شد و تست RAPD او منفی بود، این بیماری یکی از محتمل‌ترین گزینه‌هاست</li>
+                            </ul>
+                        </li>
+                        <li>تست‌های تأییدی و افتراق از ادم ماکولا:
+                            <ul class="sub-list">
+                                <li>در آنژیوگرافی (FA)، طرح گلبرگی (petaloid) مشابه ورم ماکولا دیده می‌شود، اما <span class="highlight">در XLRS برخلاف ورم واقعی، هیچ نشت رنگی (leakage) وجود ندارد</span></li>
+                                <li>در نوار چشم (ERG)، موج a طبیعی است اما موج b به شدت کاهش می‌یابد (الگوی الکترونگاتیو)</li>
+                            </ul>
+                        </li>
+                        <li>افتراق از جداشدگی شبکیه (RRD) و درمان:
+                            <ul class="sub-list">
+                                <li>سکیزیس دارای سطحی کاملاً صاف و گنبدی است و اسکوتوم (نقطه کور) آن مطلق است</li>
+                                <li>در مقابل، جداشدگی شبکیه (RRD) سطحی چروکیده دارد و اسکوتوم آن نسبی است</li>
+                                <li>اگر بیمار دچار خونریزی ویتره ناشی از بیماری شد اما شبکیه هنوز سر جای خود بود، جراحی اورژانسی جایگاهی ندارد و باید بیمار را از نزدیک پایش کرد</li>
+                            </ul>
+                        </li>
+                    </ul>
+
+                    <h3 class="topic-title">دیستروفی‌های طیف ویتلی‌فرم (Pattern و Best)</h3>
+                    <ul class="academic-list">
+                        <li>معرفی طیف بیماری:
+                            <ul class="sub-list">
+                                <li>بیماری Best: از کودکی شروع می‌شود، ضایعه زرد شبیه زرده تخم‌مرغ در ماکولا دارد و مشخصه آن کاهش شدید تست EOG است</li>
+                                <li>دیستروفی ویتلی‌فرم بالغین (AOFVD): در افراد میانسال رخ می‌دهد، ضایعات زرد دوطرفه و قرینه دارد، اما تست EOG در آن طبیعی یا نزدیک به طبیعی است</li>
+                            </ul>
+                        </li>
+                        <li>اقدام تصویربرداری ارجح:
+                            <ul class="sub-list">
+                                <li>تصویربرداری اتوفلورسانس (FAF) بهترین و اولین قدم برای ارزیابی این ضایعات است</li>
+                                <li>ماده زردرنگ ویتلی‌فرم به شدت در FAF روشن (هیپراتوفلورسنت) دیده می‌شود</li>
+                            </ul>
+                        </li>
+                        <li>پیگیری و خطاهای درمانی رایج:
+                            <ul class="sub-list">
+                                <li>بهترین رویکرد، پایش بیمار و دادن چارت آمسلر برای استفاده خانگی است</li>
+                                <li>دلیل استفاده از چارت آمسلر، پایش خطر بروز عروق مزاحم (CNV) در این بیماران است</li>
+                                <li><span class="highlight">تجویز داروی Eplerenone در این بیماری یک خطای علمی است</span></li>
+                                <li>داروی Eplerenone مختص درمان بیماری CSC مزمن است (بیماری‌ای که در FAF نمای شره‌کردن یا guttering دارد)، نه ضایعات ویتلی‌فرم</li>
+                            </ul>
+                        </li>
+                    </ul>
+
+                    <h3 class="topic-title">کوروئیدیت سرپیجینوس و تقلیدکننده‌های آن</h3>
+                    <ul class="academic-list">
+                        <li>الگوی بالینی:
+                            <ul class="sub-list">
+                                <li>یک التهاب مزمن در یک چشم کاملاً آرام (بدون قرمزی و سلول در اتاق قدامی) است</li>
+                                <li>ضایعات به شکل جغرافیک و شبیه به پاهای کاذب (سودوپودیال) از اطراف عصب بینایی به سمت خارج گسترش می‌یابند</li>
+                            </ul>
+                        </li>
+                        <li>قاعده تشخیصی و درمانی بسیار حیاتی:
+                            <ul class="sub-list">
+                                <li>بیماری سل (توبرکولوز) می‌تواند دقیقاً همین نمای بالینی را تقلید کند</li>
+                                <li><span class="highlight font-black">هرگز نباید داروهای سرکوب‌کننده ایمنی یا کورتون را شروع کرد، مگر آنکه تست‌های سل (مانند PPD، کوانتی‌فرون و عکس قفسه سینه) منفی شده باشند</span></li>
+                            </ul>
+                        </li>
+                        <li>نقش ابزارهای تصویربرداری در پایش:
+                            <ul class="sub-list">
+                                <li>تصویربرداری FAF حساس‌ترین مدالیته برای پایش فعالیت بیماری است</li>
+                                <li>اگر لبه ضایعه در FAF روشن (Hyper) باشد، یعنی بیماری فعال و در حال پیشروی است</li>
+                                <li>اگر کل ضایعه تیره (Hypo) شود، یعنی بیماری خاموش شده است</li>
+                                <li>تصویربرداری ICGA همواره وسعت بیشتری از بیماری را نسبت به آنچه در معاینه دیده می‌شود، نشان می‌دهد</li>
+                            </ul>
+                        </li>
+                    </ul>
+
+                    <h3 class="topic-title">توکسوپلاسموز چشمی و جداشدگی‌های سروزی</h3>
+                    <ul class="academic-list">
+                        <li>توکسوپلاسموز (اصول درمان و بارداری):
+                            <ul class="sub-list">
+                                <li>شایع‌ترین علت التهاب عفونی سگمان خلفی چشم است</li>
+                                <li>عود بیماری معمولاً به صورت یک ضایعه فعال و ملتهب در مجاورت یک اسکار قدیمی و خاموش رخ می‌دهد</li>
+                                <li>استفاده از استروئید سیستمیک برای کنترل التهاب، فقط و فقط در صورتی مجاز است که هم‌زمان آنتی‌بیوتیک ضد انگل نیز تجویز شود</li>
+                                <li>تزریق استروئید به صورت دپو در اطراف چشم در این بیماری اکیداً ممنوع است</li>
+                                <li><span class="highlight">در زنان باردار یا در شرایط تهدیدکننده بینایی، تزریق کلیندامایسین (همراه یا بدون دگزامتازون) به داخل فضای ویتره، یک گزینه درمانی بسیار مؤثر و ایمن است</span></li>
+                                <li>برای تأیید تشخیص مادرزادی در نوزاد، تنها اندازه‌گیری آنتی‌بادی از نوع IgM اختصاصی نوزاد ارزش دارد (چون IgG مادر از جفت عبور می‌کند)</li>
+                            </ul>
+                        </li>
+                        <li>کوریودوپاتی ناشی از فشار خون (Hypertensive Choroidopathy):
+                            <ul class="sub-list">
+                                <li>در بیمارانی که دچار افزایش حاد و شدید فشار خون می‌شوند (مانند زنان باردار مبتلا به پره‌اکلامپسی) رخ می‌دهد</li>
+                                <li>یافته اصلی آن، تجمع مایع و جداشدگی سروزی در زیر شبکیه است</li>
+                                <li>قاعده طلایی بالینی: <span class="highlight">در مواجهه با هر بیمار دارای جداشدگی سروزی شبکیه، اندازه‌گیری فشار خون الزامی است</span></li>
+                                <li>نشانه‌های مزمن این حالت در معاینه، لکه‌های Elschnig و خطوط Siegrist نام دارند</li>
+                            </ul>
+                        </li>
+                    </ul>
+
+                    <h3 class="topic-title">رتینوپاتی پارانئوپلاستیک (CAR)</h3>
+                    <ul class="academic-list">
+                        <li>معرفی و تظاهرات بالینی:
+                            <ul class="sub-list">
+                                <li>مخفف Cancer-Associated Retinopathy است</li>
+                                <li>بیمار با افت دید تحت‌حاد، شب‌کوری و دیدن جرقه‌های نوری (فتوپسی) در هر دو چشم مراجعه می‌کند</li>
+                                <li>معمولاً زمینه بیماری بدخیم (به‌ویژه سرطان ریه نوع سلول کوچک - SCLC) و سابقه مصرف سیگار وجود دارد</li>
+                                <li>در معاینه، ممکن است ظاهر شبکیه (فوندوس) کاملاً طبیعی باشد یا تغییرات جزئی نشان دهد</li>
+                                <li><span class="highlight">طبیعی بودن فوندوس، به هیچ وجه این تشخیص را رد نمی‌کند</span></li>
+                            </ul>
+                        </li>
+                        <li>یافته کلیدی برای تشخیص (تست ERG):
+                            <ul class="sub-list">
+                                <li>نوار چشم (ERG) در بیماری CAR الگوی اختصاصی دارد</li>
+                                <li>در این الگو، هر دو موج a و موج b به شدت کاهش یافته یا خاموش می‌شوند</li>
+                                <li>این امر نشان‌دهنده تخریب منتشر سلول‌های گیرنده نوری (رد و مخروط) است</li>
+                                <li>(در مقایسه، در بیماری MAR که با ملانوم مرتبط است، الگوی نوار چشم الکترونگاتیو است)</li>
+                            </ul>
+                        </li>
+                        <li>مدیریت درمانی صحیح و غلط:
+                            <ul class="sub-list">
+                                <li>درمان صحیح شامل ارجاع سریع به انکولوژی، تجویز استروئید سیستمیک، پلاسمافرزیس و داروهای تنظیم‌کننده ایمنی (IVIG) است</li>
+                                <li>تزریق داروهای ضد-VEGF، انجام لیزر PRP یا جراحی ویترکتومی در این بیماران کاملاً بی‌فایده و خطاست</li>
+                            </ul>
+                        </li>
+                    </ul>
+
+                </div>
+
+                <div id="sec-3" class="section-content">
+                    <h2 class="chapter-title">بخش سوم: گلوکوم</h2>
+
+                    <h3 class="topic-title">پدیده Plateau Iris و حملات دارویی زاویه‌بسته</h3>
+                    <ul class="academic-list">
+                        <li>درک مکانیسم Plateau Iris (عنبیه مسطح):
+                            <ul class="sub-list">
+                                <li>این سندرم شایع‌ترین علت بسته ماندن زاویه چشم پس از انجام موفقیت‌آمیز لیزر ایریدوتومی (LPI) است</li>
+                                <li>در بیماران جوان‌تر و اغلب نزدیک‌بین (میوپ) دیده می‌شود</li>
+                                <li>معاینه بالینی گول‌زننده است: عمق مرکزی اتاق قدامی طبیعی است و سطح عنبیه کاملاً صاف به نظر می‌رسد</li>
+                                <li>در تصویربرداری UBM سه علامت دیده می‌شود: زوائد مژگانی به سمت جلو کشیده شده‌اند، شیار (sulcus) وجود ندارد و پلن عنبیه صاف است</li>
+                            </ul>
+                        </li>
+                        <li>مدیریت درمانی پس از LPI:
+                            <ul class="sub-list">
+                                <li>اگر سوراخ لیزری (PI) باز است اما زاویه همچنان قابلیت انسداد دارد، انجام مجدد لیزر ایریدوتومی بی‌فایده است</li>
+                                <li>درمان صحیح در این حالت، مصرف طولانی‌مدت قطره پیلوکارپین یا انجام لیزر ایریدوپلاستی محیطی (ALPI) است</li>
+                                <li>مشخصات لیزر ALPI: از سوختگی‌های طولانی، با نقطه بزرگ و توان کم برای ایجاد انقباض در پایه عنبیه استفاده می‌شود</li>
+                            </ul>
+                        </li>
+                        <li>بسته شدن زاویه در اثر مصرف دارو (بحران Topiramate):
+                            <ul class="sub-list">
+                                <li>دارویی مانند توپیرامات می‌تواند باعث بروز ناگهانی نزدیک‌بینی (میوپیک شیفت) و حمله بسته شدن زاویه در هر دو چشم شود</li>
+                                <li>مکانیسم آن تجمع مایع (افیوژن) در فضای پشت چشم است که کل مجموعه لنز و عنبیه را به جلو هل می‌دهد</li>
+                                <li>درمان آن کاملاً متفاوت است: قطع دارو، استفاده از داروهای کاهنده فشار، و <span class="highlight">استفاده از قطره‌های سیکلوپلژیک (مثل آتروپین) برای عقب کشیدن ساختارها</span></li>
+                                <li>انجام لیزر ایریدوتومی در این حمله دارویی ممنوع و بی‌تأثیر است</li>
+                            </ul>
+                        </li>
+                    </ul>
+
+                    <h3 class="topic-title">گلوکوم Pseudoexfoliative (PEX) و ارزیابی عصب</h3>
+                    <ul class="academic-list">
+                        <li>ویژگی‌های بیماری PEX:
+                            <ul class="sub-list">
+                                <li>شایع‌ترین علت گلوکوم زاویه‌باز ثانویه است و در افراد سالمند (بالای ۷۰ سال) بروز می‌کند</li>
+                                <li>خطر پیشرفت آسیب در آن بسیار بالا است (حدود ۴۰ درصد در طی ۱۰ سال)</li>
+                                <li>وجود خط Sampaolesi در گونیوسکوپیِ یک فرد مسن، تأییدکننده این بیماری است</li>
+                            </ul>
+                        </li>
+                        <li>تفسیر معاینه عصب بینایی:
+                            <ul class="sub-list">
+                                <li>در گلوکوم، بافت عصبی باقیمانده (Rim) رنگ خود را حفظ می‌کند</li>
+                                <li><span class="highlight">اگر در معاینه، بافت ریم رنگ‌پریده (Pallor) باشد، نشانه بیماری گلوکوم نیست و باید به دنبال بیماری‌های مغزی یا التهابی عصب بود</span></li>
+                                <li>وجود یک نقص باریک و خطی (slit-like) در لایه عصبی، نشانه بسیار زودرس و اولیه گلوکوم است</li>
+                            </ul>
+                        </li>
+                        <li>پایش پیشرفت با OCT (مفهوم Floor effect):
+                            <ul class="sub-list">
+                                <li>وقتی گلوکوم به مراحل بسیار پیشرفته می‌رسد، ضخامت لایه‌های عصبی در OCT به حداقل ممکن می‌رسد و دیگر کاهشی نشان نمی‌دهد</li>
+                                <li>در این بیماران، برای پیگیری پیشرفت بیماری، استفاده از OCT آنژیوگرافی (OCT-A) سر عصب ارزش بیشتری دارد زیرا تراکم عروقی دیرتر به کف می‌رسد</li>
+                            </ul>
+                        </li>
+                    </ul>
+
+                    <h3 class="topic-title">مدیریت بلب ناکارآمد پس از جراحی ترابکولکتومی</h3>
+                    <ul class="academic-list">
+                        <li>شناخت انواع شکست جراحی در سال اول:
+                            <ul class="sub-list">
+                                <li>اگر فشار چشم بالا رفته و بلب جراحی به صورت یک برجستگی موضعی گنبدی‌شکل و کیستیک درآمده باشد، پدیده «بلب انکپسوله» رخ داده است</li>
+                                <li>اگر فشار چشم بالا باشد، بلب کاملاً تخت باشد و اتاق قدامی عمیق بماند، احتمالاً بخیه‌های فلپ بسیار سفت هستند یا مسیر فیبروز شده است</li>
+                            </ul>
+                        </li>
+                        <li>اقدامات درمانی صحیح و غلط:
+                            <ul class="sub-list">
+                                <li>برای بلب انکپسوله در سال اول، اقدام اول و صحیح <span class="highlight">سوزن زدن به بلب (Needling) در محیط درمانگاه</span> همراه با داروهای ضدالتهاب است</li>
+                                <li>ماساژ دادن چشم تنها برای باز کردن بخیه‌های سفت کاربرد دارد؛ انجام ماساژ روی بلب فیبروزه‌شده و رنگ‌پریده وضعیت را بدتر می‌کند</li>
+                                <li>تجویز قطره جنتامایسین در این حالت یک دام امتحانی است؛ جنتامایسین برای تحریک فیبروز در بلب‌هایی که بیش از حد کار می‌کنند (Over-filtration) تجویز می‌شود، نه بلبی که از کار افتاده است</li>
+                            </ul>
+                        </li>
+                    </ul>
+
+                    <h3 class="topic-title">سندرم ICE (ایریدوکورنیال اندوتلیال)</h3>
+                    <ul class="academic-list">
+                        <li>الگوی کلاسیک بیماران:
+                            <ul class="sub-list">
+                                <li>این سندرم معمولاً در زنان جوان تا میان‌سال بروز می‌کند</li>
+                                <li>همیشه به صورت یک‌طرفه تظاهر می‌یابد</li>
+                                <li>با گلوکوم زاویه‌بسته ثانویه و تغییرات چشمگیر در شکل عنبیه (مانند جابه‌جایی مردمک یا سوراخ شدن عنبیه) همراه است</li>
+                            </ul>
+                        </li>
+                        <li>یافته‌های زاویه و تصویربرداری:
+                            <ul class="sub-list">
+                                <li>در گونیوسکوپی، چسبندگی‌های بسیار بلندی دیده می‌شود که از زاویه تا خط شوالبه (Schwalbe line) در قرنیه کشیده شده‌اند</li>
+                                <li>ابزار تأییدی و دقیق برای این بیماری، میکروسکوپ کانفوکال است که سلول‌های غیرطبیعی با نمای «انعکاس معکوس» را نشان می‌دهد</li>
+                            </ul>
+                        </li>
+                        <li>خطوط کلی درمان:
+                            <ul class="sub-list">
+                                <li>برای حل مشکل گلوکوم، داروهای کاهنده ترشح زلالیه تجویز می‌شود</li>
+                                <li>در صورت نیاز به جراحی گلوکوم، استفاده از لوله (Tube shunt) نسبت به ترابکولکتومی ارجحیت دارد، زیرا فیستول‌ها در این بیماری زود بسته می‌شوند</li>
+                                <li><span class="highlight">هرگونه تلاش برای لیزر زاویه (LTP) یا انجام ایریدوتومی (LPI) در این بیماران کاملاً بی‌فایده و ممنوع است</span></li>
+                            </ul>
+                        </li>
+                    </ul>
+
+                    <h3 class="topic-title">گلوکوم ناشی از افزایش فشار وریدهای اپی‌اسکلرال (CCF)</h3>
+                    <ul class="academic-list">
+                        <li>علائم بالینی شاخص:
+                            <ul class="sub-list">
+                                <li>بیمار دارای چشم قرمز مزمن بدون هیچ‌گونه ترشح است</li>
+                                <li>وریدهای روی سفیدی چشم به شدت متسع و شبیه به دربازکن چوب‌پنبه (Corkscrew) پیچ‌خورده هستند</li>
+                                <li>بیرون‌زدگی چشم (پروپتوز) نیز به درجات مختلف وجود دارد</li>
+                            </ul>
+                        </li>
+                        <li>سرنخ گونیوسکوپی:
+                            <ul class="sub-list">
+                                <li>مشاهده خون در کانال شلم (Schlemm canal) در حین گونیوسکوپی، نشان‌دهنده آن است که فشار وریدی سیستمیک از فشار داخل چشم بالاتر رفته است</li>
+                            </ul>
+                        </li>
+                        <li>مدیریت درمانی:
+                            <ul class="sub-list">
+                                <li>تنها داروهای کاهنده تولید زلالیه اثربخش هستند و لیزر زاویه تأثیری ندارد</li>
+                                <li>اگر جراحی فیلترینگ الزامی شود، باید حتماً تدابیر پیشگیرانه (اسکلروتومی) برای جلوگیری از خونریزی‌های مهیب انجام شود</li>
+                            </ul>
+                        </li>
+                    </ul>
+
+                </div>
+
+                <div id="sec-4" class="section-content">
+                    <h2 class="chapter-title">بخش چهارم: استرابیسم و اربیت</h2>
+
+                    <h3 class="topic-title">انحرافات اکتسابی با محدودیت حرکتی در بزرگسالان</h3>
+                    <ul class="academic-list">
+                        <li>سندرم چشم سنگین (Heavy Eye Syndrome):
+                            <ul class="sub-list">
+                                <li>مختص بیمارانی است که دارای نزدیک‌بینی بسیار شدید (میوپی پاتولوژیک) هستند</li>
+                                <li>کره چشم به دلیل بزرگ شدن بیش از حد، از فضای بین عضلات فوقانی و خارجی به سمت بیرون فتق پیدا می‌کند</li>
+                                <li>بیمار دچار انحراف چشم به داخل و پایین (esotropia و hypotropia) پیشرونده می‌شود</li>
+                                <li><span class="highlight">درمان جراحی کلاسیک (برش و جابه‌جایی عضلات درگیر) در این بیماری کاملاً غلط است</span></li>
+                                <li>درمان صحیح، انجام جراحی Yokoyama (پیوند زدن شکم دو عضله به یکدیگر) است</li>
+                            </ul>
+                        </li>
+                        <li>سندرم افتادگی چشم (Sagging Eye Syndrome):
+                            <ul class="sub-list">
+                                <li>مختص سالمندانی است که نزدیک‌بینی بالا ندارند</li>
+                                <li>علت آن از هم گسیختگی و ضعف بافت‌های همبند نگهدارنده عضلات در اثر افزایش سن است</li>
+                            </ul>
+                        </li>
+                        <li>میوپاتی میتوکندریایی (سندرم KSS و CPEO):
+                            <ul class="sub-list">
+                                <li>بیمار از سنین جوانی دچار محدودیت قرینه و پیشرونده در حرکت هر دو چشم همراه با افتادگی پلک می‌شود</li>
+                                <li>دو کلید افتراقی از بیماری میاستنی گراویس: <span class="highlight">در این بیماری دوبینی وجود ندارد و خستگی‌پذیری (نوسان در طول روز) دیده نمی‌شود</span></li>
+                                <li>اقدام الزامی: انجام نوار قلب (ECG) برای بررسی بلوک‌های هدایتی قلبی که می‌توانند کشنده باشند</li>
+                                <li>ارسال آزمایش آنتی‌بادی (anti-AChR) برای چنین بیماری بدون شواهد بالینی میاستنی، خطای تشخیصی است</li>
+                            </ul>
+                        </li>
+                    </ul>
+
+                    <h3 class="topic-title">ارزیابی تومورهای پلک و اربیت</h3>
+                    <ul class="academic-list">
+                        <li>کارسینوم سباسه پلک (Sebaceous Carcinoma):
+                            <ul class="sub-list">
+                                <li>این تومور استادِ تقلید کردن از سایر بیماری‌های خوش‌خیم پلک است</li>
+                                <li>تریاد خطرناک: اگر بیمار دچار شالازیون عودکننده در یک محل ثابت، عفونت لبه پلک یک‌طرفه مقاوم به درمان، و ریزش مژه‌ها (madarosis) شد، باید به این تومور شک کرد</li>
+                                <li>اقدام تأییدی: نمونه‌برداری تمام‌ضخامت (full-thickness) از پلک همراه با رنگ‌آمیزی لیپید روی بافت تازه</li>
+                                <li>به دلیل احتمال پخش شدن تومور به نواحی مجاور، برداشتن نمونه‌های متعدد از ملتحمه (map biopsy) قبل از جراحی اصلی الزامی است</li>
+                                <li><span class="highlight">تصمیم‌گیری برای نوع جراحی نباید بر اساس حاشیه‌های گزارش شده در یک بیوپسی کوچک و اولیه انجام قلمداد شود</span></li>
+                            </ul>
+                        </li>
+                        <li>گرانولوم کلسترول اربیت (Cholesterol Granuloma):
+                            <ul class="sub-list">
+                                <li>معمولاً در مردان میانسال با ایجاد توده در قسمت فوقانی-خارجی اربیت بروز می‌کند</li>
+                                <li>در سی‌تی‌اسکن، نمای خورده شدن استخوان (استئولیز) بدون رسوب کلسیم را نشان می‌دهد</li>
+                                <li>علی‌رغم ظاهر ترسناک در سی‌تی‌اسکن، این توده هیچ بافت سلولی بدخیمی ندارد و کاملاً خوش‌خیم است</li>
+                                <li>درمان آن بسیار ساده است و با تخلیه محتویات و تراشیدن سطحی استخوان (کورتاژ) انجام می‌شود</li>
+                                <li>برداشتن بلوک‌های وسیع استخوانی برای این ضایعه لازم نیست</li>
+                            </ul>
+                        </li>
+                    </ul>
+
+                    <h3 class="topic-title">سلولیت اربیت و آبسه ساب‌پریوستئال (SPA)</h3>
+                    <ul class="academic-list">
+                        <li>اصول برخورد در کودکان:
+                            <ul class="sub-list">
+                                <li>درد و تورم حاد در اطراف چشم کودک، یک بیماری عفونی تلقی می‌شود تا زمانی که خلاف آن ثابت شود</li>
+                                <li>انجام سی‌تی‌اسکن اربیت برای افتراق درگیری سطحی از عمقی و کشف آبسه، اندیکاسیون قطعی دارد</li>
+                                <li>درمان دارویی باید به صورت ترکیبی (مانند وانکومایسین و سفتازیدیم) باشد و تجویز تک‌دارویی ممنوع است</li>
+                            </ul>
+                        </li>
+                        <li>معیارهای الزام‌آور برای جراحی و تخلیه آبسه:
+                            <ul class="sub-list">
+                                <li>وجود هر یک از این معیارها، جراحی را قطعی می‌کند:</li>
+                                <li>سن کودک ۹ سال یا بیشتر باشد</li>
+                                <li>عفونت از سینوس فرونتال منشأ گرفته باشد</li>
+                                <li>آبسه در قسمتی غیر از بخش داخلی (مدیال) چشم قرار گرفته باشد</li>
+                                <li>وجود حباب گاز در آبسه (که نشانه حضور باکتری‌های بی‌هوازی است)</li>
+                                <li>عود مجدد آبسه پس از تخلیه قبلی</li>
+                                <li>به خطر افتادن عملکرد عصب بینایی یا شبکیه</li>
+                            </ul>
+                        </li>
+                        <li>پایش پس از جراحی:
+                            <ul class="sub-list">
+                                <li>در صورتی که وضعیت بالینی کودک رو به بهبود است، تکرار سی‌تی‌اسکن هیچ توجیهی ندارد</li>
+                            </ul>
+                        </li>
+                    </ul>
+
+                    <h3 class="topic-title">انسداد مادرزادی مجرای اشکی (CNLDO)</h3>
+                    <ul class="academic-list">
+                        <li>الگوی تشخیصی و درمانی در شیرخواران:
+                            <ul class="sub-list">
+                                <li>اشک‌ریزش مداوم و ترشحات چرکی یک‌طرفه در یک نوزاد، نشانه انسداد مجرای اشکی است</li>
+                                <li>استفاده از برچسب «کونژنکتیویت باکتریال» برای این حالت اشتباه است</li>
+                                <li><span class="highlight">درمان خط اول، فقط و فقط ماساژ اصولی کیسه اشکی (ماساژ Crigler) و تجویز قطره برای ترشحات است</span></li>
+                                <li>این درمان محافظه‌کارانه باید تا حدود ۱۲ ماهگی کودک ادامه یابد</li>
+                            </ul>
+                        </li>
+                        <li>مداخلات جراحی و تصویربرداری:
+                            <ul class="sub-list">
+                                <li>انجام جراحی باز کردن مجرا (پروبینگ) پیش از یک سالگی، تنها در صورت بروز عفونت حاد کیسه اشکی مجاز است</li>
+                                <li>انجام سی‌تی‌اسکن یا ام‌آرآی برای یک انسداد ساده بی‌مورد است</li>
+                                <li>تصویربرداری تنها زمانی انجام می‌شود که توده‌ای برجسته و آبی‌رنگ در گوشه داخلی چشم (به نشانه موکوسل) وجود داشته باشد</li>
+                            </ul>
+                        </li>
+                    </ul>
+
+                </div>
+
+                <div id="sec-5" class="section-content">
+                    <h2 class="chapter-title">بخش پنجم: اورژانس‌های چشمی</h2>
+
+                    <h3 class="topic-title">سوختگی شیمیایی-حرارتی چشم و ایسکمی لیمبال</h3>
+                    <ul class="academic-list">
+                        <li>مکانیسم آسیب مواد شیمیایی:
+                            <ul class="sub-list">
+                                <li>سوختگی با مواد قلیایی بسیار ویرانگرتر از اسیدها است</li>
+                                <li>مواد قلیایی با صابونی کردن چربی‌های غشای سلول، به سرعت به عمق چشم نفوذ می‌کنند</li>
+                                <li>مواد اسیدی با رسوب دادن پروتئین‌ها، تا حدودی سدی در برابر نفوذ بیشتر خود می‌سازند</li>
+                                <li>تنها استثنا در میان اسیدها، هیدروفلوریک اسید است که نفوذ بالایی دارد</li>
+                            </ul>
+                        </li>
+                        <li>مهم‌ترین و اولین اقدام درمانی:
+                            <ul class="sub-list">
+                                <li><span class="highlight">شست‌وشوی (ایریگیشن) فوری، فراوان و بی‌وقفه حیاتی‌ترین قدم است</span></li>
+                                <li>حتی اگر بیمار از مرکز دیگری ارجاع شده و در آنجا شست‌وشو داده شده باشد، باید شست‌وشو را بلافاصله تکرار کرد</li>
+                                <li>برگرداندن پلک‌ها (Everting) و جست‌وجوی دقیق در تمام شیارها برای یافتن ذرات شیمیایی پنهان (به ویژه اکسید آلومینیوم) الزامی است</li>
+                                <li>شست‌وشو باید تا رسیدن pH چشم به محدوده طبیعی (7.0 تا 7.3) ادامه یابد</li>
+                            </ul>
+                        </li>
+                        <li>ارزیابی پیش‌آگهی و تصمیم برای بستری:
+                            <ul class="sub-list">
+                                <li>وسعت از بین رفتن رگ‌های خونی دور قرنیه (ایسکمی لیمبال)، مهم‌ترین شاخص برای تعیین سرنوشت چشم است</li>
+                                <li><span class="highlight">بیماری که شواهد ایسکمی در معاینه دارد، باید فوراً بستری شود</span></li>
+                                <li>درمان و پیگیری سرپایی در چنین بیماری که در خطر ذوب قرنیه قرار دارد، یک خطای بزرگ پزشکی است</li>
+                            </ul>
+                        </li>
+                        <li>تفسیر یافته‌های فاز حاد:
+                            <ul class="sub-list">
+                                <li>سفید شدن قرنیه در روزهای اول، نشان‌دهنده قطع خون‌رسانی (ایسکمی) و تورم بافتی است</li>
+                                <li>این سفیدی عفونت نیست، بنابراین گرفتن کشت میکروبی از آن خطاست</li>
+                                <li>در حوادثی که با انفجار همراه بوده‌اند، انجام سی‌تی‌اسکن اربیت برای یافتن اجسام خارجی پنهان ضروری است</li>
+                            </ul>
+                        </li>
+                        <li>اصول تجویز داروها در فاز حاد:
+                            <ul class="sub-list">
+                                <li>استفاده از قطره کورتیکواستروئید با دفعات بالا، فقط در ۱۰ تا ۱۴ روز اول پس از حادثه مجاز است</li>
+                                <li>پس از این مدت، کورتون باید به سرعت کاهش یابد تا مانع ترمیم بافت نشده و منجر به سوراخ شدن قرنیه نگردد</li>
+                                <li>تجویز اسید اسکوربیک خوراکی با دوز بالا (یک تا دو گرم در روز) برای کلاژن‌سازی مفید است</li>
+                                <li>اما تجویز این مکمل در بیماران مبتلا به نارسایی کلیه ممنوع است</li>
+                            </ul>
+                        </li>
+                        <li>اقدامات در فاز دیررس و مزمن:
+                            <ul class="sub-list">
+                                <li>آسیب مزمن باعث از بین رفتن سلول‌های بنیادی قرنیه (LSCD) می‌شود</li>
+                                <li>ترمیم این مشکل با پیوند سلول‌های بنیادی یا غشای آمنیون انجام می‌پذیرد</li>
+                                <li>هرگونه پیوند قرنیه باید تا زمان آرام شدن کامل چشم و بازسازی سلول‌های بنیادی به تعویق بیفتد</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+
+                <div id="sec-6" class="section-content">
+                    <h2 class="chapter-title">بخش ششم: تصویربرداری و بیومتری نوری</h2>
+
+                    <h3 class="topic-title">محاسبه قدرت لنز داخل چشمی (IOL Calculation)</h3>
+                    <ul class="academic-list">
+                        <li>طول محوری چشم (Axial Length - AL):
+                            <ul class="sub-list">
+                                <li>AL مهم‌ترین عدد ورودی برای محاسبه دقیق لنز است</li>
+                                <li>فقط ۱ میلی‌متر خطا در اندازه‌گیری AL، منجر به حدود ۲٫۳۵ دیوپتر خطای نمره چشم پس از عمل می‌شود</li>
+                                <li>این میزان خطا در چشم‌های کوتاه بسیار شدیدتر است و به حدود ۳٫۷۵ دیوپتر می‌رسد</li>
+                                <li><span class="highlight">وارد کردن وضعیت اشتباه چشم در دستگاه (مثلاً ثبت چشم پر از روغن سیلیکون به جای چشم طبیعی) باعث ایجاد یک خطای بزرگ و سیستماتیک در اندازه‌گیری می‌شود</span></li>
+                            </ul>
+                        </li>
+                        <li>چالش‌های روغن سیلیکون:
+                            <ul class="sub-list">
+                                <li>سرعت حرکت صوت در دستگاه‌های اولتراسوند برای چشم طبیعی 1555 متر بر ثانیه است</li>
+                                <li>اما سرعت صوت در روغن سیلیکون به شدت پایین‌تر و حدود 980 متر بر ثانیه است</li>
+                                <li>اگر دستگاه برای روغن تنظیم نشده باشد، طول چشم را بسیار بلندتر از واقعیت محاسبه کرده و بیمار پس از عمل به شدت دوربین (هیپروپ) می‌شود</li>
+                            </ul>
+                        </li>
+                        <li>کراتومتری (K) و پرچم‌های هشدار:
+                            <ul class="sub-list">
+                                <li>دیدن علامت تعجب (!) یا ستاره (*) در کنار اعداد کراتومتری در برگه خروجی دستگاه، نشان‌دهنده کیفیت پایین اندازه‌گیری است</li>
+                                <li>پزشک هرگز نباید این اعداد بی‌کیفیت را مبنای عمل جراحی قرار دهد، بلکه باید اندازه‌گیری را تکرار کند</li>
+                                <li>اگر بیمار از لنز تماسی استفاده می‌کرده، باید وقفه کافی برای بازگشت شکل طبیعی قرنیه رعایت شود</li>
+                            </ul>
+                        </li>
+                        <li>محاسبه در چشم‌های جراحی‌شده (Post-Refractive):
+                            <ul class="sub-list">
+                                <li>بیمارانی که قبلاً لیزیک کرده‌اند، مستعد خطای سه‌گانه در دستگاه‌ها هستند که همگی آن‌ها را پس از عمل کاتاراکت، دوربین می‌کنند</li>
+                                <li>استفاده از فرمول‌های قدیمی و روش‌های تک-K در این بیماران ممنوع است</li>
+                                <li>باید از روش‌های اصلاحی مانند فرمول Barrett True-K یا ماشین‌حساب‌های مخصوص ASCRS استفاده شود</li>
+                            </ul>
+                        </li>
+                        <li>عمق اتاق قدامی (ACD) و جایگاه لنز:
+                            <ul class="sub-list">
+                                <li>اگر در برگه بیومتری ستون فرمول خاصی (مانند فرمول Haigis) خالی ماند، نشان‌دهنده خرابی دستگاه نیست</li>
+                                <li>این یعنی دستگاه نتوانسته عمق اتاق قدامی (ACD) معتبری به دست آورد و فرمول قادر به محاسبه نبوده است</li>
+                            </ul>
+                        </li>
+                        <li>انتخاب فرمول مناسب بر اساس طول چشم:
+                            <ul class="sub-list">
+                                <li>برای چشم‌های کوتاه (مستعدترین چشم‌ها به خطا)، فرمول Hoffer Q قابل‌اعتمادتر است</li>
+                                <li>برای چشم‌های با طول متوسط و بلند، فرمول‌های مدرن مانند Barrett Universal II بهترین عملکرد را دارند</li>
+                            </ul>
+                        </li>
+                        <li>مدیریت آستیگماتیسم حین جراحی:
+                            <ul class="sub-list">
+                                <li>قرنیه خلفی معمولاً دارای آستیگماتیسم خلاف قاعده (ATR) است (حدود 0.30 تا 0.50 دیوپتر)</li>
+                                <li>ایجاد برش جراحی روی هر محور، باعث مسطح شدن همان محور می‌شود</li>
+                                <li>بنابراین، ایجاد برش در ناحیه تمپورال، فقط برای اصلاح آستیگماتیسم‌های ATR منطقی است</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+
+                <div id="sec-7" class="section-content">
+                    <h2 class="chapter-title">بخش هفتم: جداول تشخیص افتراقی کلیدی</h2>
+
+                    <h3 class="topic-title">۱) نازک‌شدگی‌های محیطی قرنیه</h3>
+                    <div class="table-container">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>بیماری</th>
+                                    <th>درد و التهاب</th>
+                                    <th>وضعیت اپی‌تلیوم</th>
+                                    <th>محل درگیری</th>
+                                    <th>کلید تشخیص افتراقی</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td class="font-bold text-slate-800">PUK اتوایمیون</td>
+                                    <td>شدیداً ملتهب و دردناک</td>
+                                    <td>غایب (دارای نقص)</td>
+                                    <td>یک سکتور خاص، نزدیک به لیمبوس</td>
+                                    <td><ul class="sub-list border-none bg-transparent p-0 m-0"><li class="mb-0">همراهی با بیماری‌های سیستمیک (به ویژه روماتوئید آرتریت)</li></ul></td>
+                                </tr>
+                                <tr>
+                                    <td class="font-bold text-slate-800">اولسر Mooren</td>
+                                    <td>شدیداً ملتهب و دردناک</td>
+                                    <td>غایب</td>
+                                    <td>شروع از محیط و پیشروی به مرکز</td>
+                                    <td><ul class="sub-list border-none bg-transparent p-0 m-0"><li class="mb-0">لبه مرکزی آن نقب‌زده است؛ تشخیص آن کاملاً طردی است؛ بررسی هپاتیت C الزامی است</li></ul></td>
+                                </tr>
+                                <tr>
+                                    <td class="font-bold text-slate-800">دژنراسیون Terrien</td>
+                                    <td>غیرالتهابی و بدون درد</td>
+                                    <td>سالم</td>
+                                    <td>بخش فوقانی قرنیه؛ مردان میانسال</td>
+                                    <td><ul class="sub-list border-none bg-transparent p-0 m-0"><li class="mb-0">دارای رگ‌های پانوس و رسوب خطی لیپید در لبه مرکزی است</li></ul></td>
+                                </tr>
+                                <tr>
+                                    <td class="font-bold text-slate-800">دژنراسیون PMD</td>
+                                    <td>غیرالتهابی و بدون درد</td>
+                                    <td>سالم</td>
+                                    <td>بخش تحتانی؛ جوانان ۲۰ تا ۴۰ سال</td>
+                                    <td><ul class="sub-list border-none bg-transparent p-0 m-0"><li class="mb-0">بدون رسوب لیپید؛ قرنیه درست در بالای باند نازکی دچار اکتازی می‌شود</li></ul></td>
+                                </tr>
+                                <tr>
+                                    <td class="font-bold text-slate-800">کراتیت کاتارال</td>
+                                    <td>التهابی با درد متغیر</td>
+                                    <td>متغیر</td>
+                                    <td>نواحی برخورد پلک</td>
+                                    <td><ul class="sub-list border-none bg-transparent p-0 m-0"><li class="mb-0">بین ضایعه و لیمبوس یک فاصله کاملاً شفاف وجود دارد؛ پاسخ عالی به استروئید دارد</li></ul></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <h3 class="topic-title">۲) افتراق بیماری‌های اندوتلیوم و ادم قرنیه</h3>
+                    <div class="table-container">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>ویژگی</th>
+                                    <th>سندرم ICE</th>
+                                    <th>دیستروفی PPCD</th>
+                                    <th>دیستروفی Fuchs</th>
+                                    <th>دیستروفی CHED</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td class="font-bold text-slate-800">الگوی درگیری</td>
+                                    <td>یک‌طرفه، کاملاً اسپورادیک</td>
+                                    <td>دوطرفه، ارثی (اتوزومال غالب)</td>
+                                    <td>دوطرفه، بروز در سنین بالا</td>
+                                    <td>مادرزادی، اتوزومال مغلوب</td>
+                                </tr>
+                                <tr>
+                                    <td class="font-bold text-slate-800">سن شروع</td>
+                                    <td>زنان جوان و میانسال (۲۰ تا ۵۰ سال)</td>
+                                    <td>متغیر، اغلب بدون علامت</td>
+                                    <td>دهه چهارم به بعد (تاری دید صبحگاهی)</td>
+                                    <td>نوزادان و شیرخواران</td>
+                                </tr>
+                                <tr>
+                                    <td class="font-bold text-slate-800">ظاهر قرنیه و عنبیه</td>
+                                    <td><ul class="sub-list border-none bg-transparent p-0 m-0"><li class="mb-0">تغییر شکل و کشیدگی مردمک؛ چسبندگی‌های بلند زاویه</li></ul></td>
+                                    <td><ul class="sub-list border-none bg-transparent p-0 m-0"><li class="mb-0">وزیکول‌های گروهی؛ ۱۴ درصد با گلوکوم همراهند</li></ul></td>
+                                    <td><ul class="sub-list border-none bg-transparent p-0 m-0"><li class="mb-0">گوتای مرکزی؛ درگیری عنبیه ندارد</li></ul></td>
+                                    <td><ul class="sub-list border-none bg-transparent p-0 m-0"><li class="mb-0">قرنیه بسیار ضخیم و کدر؛ اشک‌ریزش شدید ندارد</li></ul></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <h3 class="topic-title">۳) افتراق توده‌های نارنجی کوروئید</h3>
+                    <div class="table-container">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>نوع تومور</th>
+                                    <th>سرنخ‌ها و کلیدهای تصویربرداری</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td class="font-bold text-slate-800">همانژیوم محدود کوروئید</td>
+                                    <td><ul class="sub-list border-none bg-transparent p-0 m-0"><li>توده‌ای نارنجی با مرز مشخص</li><li>در B-scan بسیار اکوژن است</li><li><span class="highlight">در ICGA، به سرعت پر از رنگ شده و در نهایت کاملاً رنگ خود را از دست می‌دهد (پدیده Washout)</span></li></ul></td>
+                                </tr>
+                                <tr>
+                                    <td class="font-bold text-slate-800">متاستاز آملانوتیک (مثل تیروئید)</td>
+                                    <td><ul class="sub-list border-none bg-transparent p-0 m-0"><li>ظاهر آن کاملاً شبیه همانژیوم است</li><li>اما در ICGA پدیده شاخص Washout را ندارد</li></ul></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div id="sec-8" class="section-content">
+                    <h2 class="chapter-title">بخش هشتم: الگوریتم‌های تشخیصی (اگر - آنگاه)</h2>
+                    
+                    <h3 class="topic-title">اورژانس‌ها و عفونت‌ها</h3>
+                    <ul class="academic-list">
+                        <li>برخورد با چشم قرمز و دردناک پس از جراحی:
+                            <ul class="sub-list">
+                                <li>اگر بیمار در ۶ هفته اول پس از جراحی است و ترشح چرکی دارد</li>
+                                <li>ابتدا گرفتن اسمیر و کشت</li>
+                                <li>سپس خارج کردن بخیه‌های عفونی</li>
+                                <li>ثبت دقیق دید بیمار</li>
+                                <li>سونوگرافی B-scan برای بررسی ویتره</li>
+                                <li>اگر ویتره درگیر بود: تزریق فوری داخل چشمی بدون انتظار برای جواب کشت</li>
+                            </ul>
+                        </li>
+                        <li>برخورد با سوختگی شیمیایی:
+                            <ul class="sub-list">
+                                <li>شست‌وشوی فوری، بی‌وقفه و فراوان در محل و تکرار آن در بیمارستان</li>
+                                <li>برگرداندن پلک‌ها برای یافتن ذرات شیمیایی پنهان</li>
+                                <li>بررسی میزان سفید شدن لیمبوس؛ در صورت وجود ایسکمی، بستری بیمار قطعی است</li>
+                            </ul>
+                        </li>
+                        <li>کاهش دید دوطرفه با شرح‌حال بدخیمی (شک به CAR):
+                            <ul class="sub-list">
+                                <li>اگر بیمار سیگاری است، افت دید دوطرفه و فتوپسی دارد</li>
+                                <li>اولین تست: گرفتن نوار چشم (ERG)</li>
+                                <li>اگر هر دو موج a و b کاهش یافته باشند، تشخیص CAR اثبات می‌شود</li>
+                            </ul>
+                        </li>
+                    </ul>
+
+                    <h3 class="topic-title">اشک‌ریزش و گلوکوم</h3>
+                    <ul class="academic-list">
+                        <li>اشک‌ریزش یک‌طرفه در شیرخوار:
+                            <ul class="sub-list">
+                                <li>اگر توده‌ای در گوشه داخلی چشم وجود ندارد: تشخیص CNLDO است</li>
+                                <li>درمان محافظه‌کارانه شامل ماساژ و قطره تا یک سالگی</li>
+                                <li>اگر توده کبودرنگ وجود دارد: شک به داکریوسیستوسل است و تصویربرداری لازم است</li>
+                            </ul>
+                        </li>
+                        <li>بررسی زاویه باریک و بسته در بزرگسالان:
+                            <ul class="sub-list">
+                                <li>همیشه در ابتدا لیزر LPI انجام می‌شود</li>
+                                <li>اگر زاویه همچنان بسته ماند و عمق اتاق قدامی طبیعی بود: تشخیص Plateau iris است</li>
+                                <li>اگر بیمار جوان میوپ است و حمله دوطرفه دارد: تشخیص بحران دارویی است</li>
+                            </ul>
+                        </li>
+                        <li>کاهش دید پس از عمل لیزری (PRK):
+                            <ul class="sub-list">
+                                <li>اگر پس از چند ماه دید کاهش یافت و شماره چشم برگشت</li>
+                                <li>معاینه اسلیت‌لمپ برای یافتن کدورت (هیز)</li>
+                                <li>انجام الزامی تصویربرداری پنتاکم برای رد کردن اکتازی</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+
+                <div id="sec-9" class="section-content">
+                    <h2 class="chapter-title">بخش نهم: الگوریتم‌های درمانی</h2>
+                    
+                    <ul class="academic-list">
+                        <li>بیماری PCV مقاوم به درمان دارویی:
+                            <ul class="sub-list">
+                                <li>تأیید نهایی با تصویربرداری ICGA</li>
+                                <li>شروع درمان ترکیبی (لیزر PDT هم‌زمان با داروی ضد-VEGF)</li>
+                                <li>استفاده از رژیم T&E که در آن تزریق در هر ویزیت بدون استثنا انجام می‌شود</li>
+                            </ul>
+                        </li>
+                        <li>بلب جراحی که دچار فیبروز و ناکارآمدی شده است:
+                            <ul class="sub-list">
+                                <li>اگر در سال اول پس از عمل رخ داده و فشار بالا رفته است</li>
+                                <li>قدم اول: سوزن زدن (Needling) در درمانگاه همراه با داروی ضدفیبروز</li>
+                                <li>در صورت عدم موفقیت، بازنگری جراحی در اتاق عمل</li>
+                                <li>استفاده از قطره جنتامایسین در این مرحله خطاست</li>
+                            </ul>
+                        </li>
+                        <li>ادم قرنیه ناشی از جداشدگی دسمه (DMD):
+                            <ul class="sub-list">
+                                <li>اگر جداشدگی بزرگ است: تزریق گاز تامپوناد (SF6) در اتاق قدامی</li>
+                                <li>اگر پاسخگو نبود: زدن بخیه فشاری روی قرنیه</li>
+                                <li>اگر دکامپانساسیون نهایی رخ داد: پیوند لایه‌ای اندوتلیوم (DSAEK)</li>
+                            </ul>
+                        </li>
+                        <li>کارسینوم سباسه پلک:
+                            <ul class="sub-list">
+                                <li>بیوپسی تمام‌ضخامت همراه با رنگ‌آمیزی چربی</li>
+                                <li>نمونه‌برداری نقشه‌ای از ملتحمه (map biopsy) پیش از عمل اصلی</li>
+                                <li>برداشتن تومور با کنترل دقیق حاشیه‌ها در حین عمل</li>
+                                <li>تخلیه کامل حدقه (اگزنتراسیون) فقط برای موارد عود یا عبور تومور از دیواره اربیت</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+
+                <div id="sec-10" class="section-content">
+                    <h2 class="chapter-title">بخش دهم: نکات طلایی مورد تأکید</h2>
+                    
+                    <ul class="academic-list">
+                        <li>نکات عفونی و قرنیه:
+                            <ul class="sub-list">
+                                <li>درد شدید قرنیه که با ظاهر آن همخوانی ندارد، ویژگی اختصاصی آکانتامبا است و ناشی از درگیری اعصاب است</li>
+                                <li>در عفونت آکانتامبا، انجام پیوند قرنیه برای بهبود دید، قبل از اتمام کامل داروها یک خطای محض است</li>
+                                <li>تزریق داخل چشمی در اندوفتالمیت، نیازمند منتظر ماندن برای جواب آزمایشگاه نیست (قاعده نیمه‌شب)</li>
+                                <li>فقدان درد و قرمزی چشم، محکم‌ترین دلیل بالینی برای رد کردن زخم مورن است</li>
+                                <li>در هیچ‌یک از دیستروفی‌های اندوتلیوم قرنیه (مثل فوکس)، تجمع ناگهانی مایع (هیدروپس) رخ نمی‌دهد</li>
+                            </ul>
+                        </li>
+                        <li>نکات رفرکتیو و بیومتری:
+                            <ul class="sub-list">
+                                <li>در متقاضی لیزیک که دید کامل ندارد، قدم اول پیدا کردن علت افت دید است، نه محاسبه لنز</li>
+                                <li><span class="highlight">درمان هم‌زمان هیز قرنیه و اصلاح شماره چشم ممنوع است؛ درمان هیز، بخشی از شماره را نیز اصلاح می‌کند</span></li>
+                                <li>ثبت اشتباه وضعیت چشم (مانند پر از سیلیکون) در دستگاه بیومتری، تمام محاسبات را با خطای سیستماتیک روبرو می‌کند</li>
+                            </ul>
+                        </li>
+                        <li>نکات گلوکوم و شبکیه:
+                            <ul class="sub-list">
+                                <li>در معاینه عصب، اگر بافت باقیمانده دچار رنگ‌پریدگی شده باشد، علت آن گلوکوم نیست</li>
+                                <li>برای بررسی پیشرفت گلوکوم در بیماران بسیار پیشرفته، OCT ضخامت عصبی دیگر کارایی ندارد و OCT-A ارجحیت دارد</li>
+                                <li>تجویز مانیتول وریدی برای بیماری که فشار حاد و اورژانسی ندارد، خطای درمانی است</li>
+                                <li>در بیماری Angioid streaks مهم‌ترین و خطرناک‌ترین عارضه، ایجاد عروق خونی مزاحم در شبکیه (CNV) است</li>
+                                <li>در بیماری CAR طبیعی بودن فوندوس دلیل بر سلامت نیست؛ نوار چشم (ERG) کلید تشخیص است</li>
+                                <li><span class="highlight">هرگز در درمان همانژیوبلاستوما، پیش از مسدود کردن شریان ورودی، ورید خروجی را لیزر نکنید</span></li>
+                            </ul>
+                        </li>
+                        <li>نکات اربیت و استرابیسم:
+                            <ul class="sub-list">
+                                <li>در کودکان، تورم ناگهانی و دردناک پلک یک عفونت تلقی می‌شود تا زمانی که خلاف آن با آزمایش ثابت شود</li>
+                                <li>گرانولوم کلسترول ظاهری وحشتناک و خورنده در سی‌تی‌اسکن دارد، اما ماهیتی خوش‌خیم و غیرسلولی دارد</li>
+                                <li>در تومور سباسه، تکرار شدن شالازیون در یک نقطه، انجام پاتولوژی را الزامی می‌کند</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+
+                <div id="sec-11" class="section-content">
+                    <h2 class="chapter-title">بخش یازدهم: اعداد و آستانه‌های مهم</h2>
+                    
+                    <ul class="academic-list">
+                        <li>اندازه‌گیری طول چشم و بیومتری:
+                            <ul class="sub-list">
+                                <li>خطای ۱ میلی‌متری در چشم معمولی، منجر به ۲٫۳۵ دیوپتر خطای شماره می‌شود</li>
+                                <li>این خطا در چشم‌های کوتاه، فاجعه‌بار و حدود ۳٫۷۵ دیوپتر است</li>
+                                <li>سرعت معمول صوت در بافت چشم 1555 متر بر ثانیه است</li>
+                                <li>سرعت صوت در روغن سیلیکون تنها 980 متر بر ثانیه است</li>
+                            </ul>
+                        </li>
+                        <li>کراتوکونوس و اکتازی:
+                            <ul class="sub-list">
+                                <li>شیوع کراتوکونوس تقریباً ۱ نفر در هر ۲۰۰۰ نفر است</li>
+                                <li>ضخامت استرومای مورد نیاز برای کراس‌لینکینگ، حداقل 400 میکرومتر است</li>
+                                <li>انرژی استاندارد کراس‌لینکینگ 5.4 ژول بر سانتی‌متر مربع است</li>
+                                <li>میزان ضخامت بستر باقیمانده (RSB) در جراحی لیزیک باید بیشتر یا مساوی 250 میکرومتر باشد</li>
+                                <li>شاخص PTA بالاتر از ۴۰ درصد نشانگر خطر بالای اکتازی است</li>
+                            </ul>
+                        </li>
+                        <li>شبکیه و گلوکوم:
+                            <ul class="sub-list">
+                                <li>اگر ناحیه نان‌پرفیوژن در FA بیشتر یا مساوی 10 دیسک‌اریا باشد، CRVO از نوع ایسکمیک تلقی می‌شود</li>
+                                <li>فشار طبیعی وریدهای اپی‌اسکلرال (EVP) بین 6 تا 9 میلی‌متر جیوه است</li>
+                                <li>فشار هدف برای گلوکوم با آسیب بسیار شدید، کمتر از 15 میلی‌متر جیوه تعیین می‌شود</li>
+                                <li>تزریق وانکومایسین در اورژانس با دوز 1 میلی‌گرم در 0.1 میلی‌لیتر انجام می‌شود</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+
+                <div id="sec-12" class="section-content">
+                    <h2 class="chapter-title">بخش دوازدهم: دام‌های رایج امتحانی و بالینی</h2>
+                    
+                    <ul class="academic-list">
+                        <li>تله‌های تصویربرداری و آزمایشگاهی:
+                            <ul class="sub-list">
+                                <li>درخواست AS-OCT در فاز حاد کراتیت عفونی و سوختگی شیمیایی نمره منفی دارد</li>
+                                <li>انتظار برای جواب اسمیر قبل از درمان کراتیت شدید یا اندوفتالمیت، زمان طلایی را نابود می‌کند</li>
+                                <li>سفیدی قرنیه در سوختگی روزهای اول، نشانه قطع خونرسانی است نه چرک؛ گرفتن کشت در این مرحله اشتباه است</li>
+                            </ul>
+                        </li>
+                        <li>تله‌های دارویی و درمانی:
+                            <ul class="sub-list">
+                                <li>تجویز استروئید پیش از داروی ضدآمیبی، باعث تشدید فاجعه‌بار کراتیت آکانتامبا می‌شود</li>
+                                <li>تجویز قطره جنتامایسین در بلب فیلترینگی که مسدود شده است، دام کلاسیکی است که نتیجه معکوس دارد</li>
+                                <li>استفاده از داروهای خانواده میوتیک در سندرم ICE کاملاً بی‌اثر است</li>
+                                <li>شروع داروهای سرکوب‌کننده سیستمیک برای کوروئیدیت، بدون رد کردن بیماری سل، خطای بالینی فاحش است</li>
+                            </ul>
+                        </li>
+                        <li>تله‌های جراحی و تصمیم‌گیری:
+                            <ul class="sub-list">
+                                <li>انجام پیوند اپتیکال فوری برای عفونت آکانتومبای فعال اکیداً ممنوع است</li>
+                                <li>انجام عمل جراحی لیزیک مجدد (PRK) هم‌زمان با برداشتن هیز استرومایی، باعث دوربینی شدید بیمار می‌شود</li>
+                                <li>قرار دادن iStent برای جوان مبتلا به گلوکوم پیشرفته که نیازمند فشار پایین است، اندیکاسیونی ندارد</li>
+                                <li>اتکا به ابعاد گزارش شده در یک بیوپسی کوچکِ برشی برای تعیین حاشیه تومور سباسه، باعث جراحی ناقص می‌شود</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+    </main>
+
+    <script>
+        function toggleSidebar() {
+            const sidebar = document.getElementById('sidebar');
+            const overlay = document.getElementById('overlay');
+            
+            sidebar.classList.toggle('translate-x-full');
+            overlay.classList.toggle('hidden');
+        }
+
+        function switchTab(tabId) {
+            const sections = document.querySelectorAll('.section-content');
+            sections.forEach(section => {
+                section.classList.remove('active');
+            });
+
+            const activeSection = document.getElementById(tabId);
+            if (activeSection) {
+                activeSection.classList.add('active');
+            }
+
+            const scrollArea = document.getElementById('main-scroll-area');
+            if(scrollArea) {
+                scrollArea.scrollTo({ top: 0, behavior: 'smooth' });
+            }
+
+            // همواره منو را بعد از انتخاب یک گزینه ببندید (برای دسکتاپ و موبایل)
+            const sidebar = document.getElementById('sidebar');
+            if (!sidebar.classList.contains('translate-x-full')) {
+                toggleSidebar();
+            }
+        }
+    </script>
+</body>
+</html>
